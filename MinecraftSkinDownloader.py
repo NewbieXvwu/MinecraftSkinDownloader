@@ -1,3 +1,4 @@
+version="v1.4"
 from copyreg import clear_extension_cache
 import ctypes, sys
 import os
@@ -181,7 +182,7 @@ w=500
 h=300
 x=(scw-w)/2
 y=(sch-h)/2
-sc.title("Minecraft正版皮肤下载器")
+sc.title("Minecraft正版皮肤下载器"+version+" By 萌新欻無")
 sc.geometry("%dx%d+%d+%d"%(w,h,x,y))
 sc.maxsize(w,h)
 sc.minsize(w,h)
@@ -216,4 +217,6 @@ def func(event):
 cmb.bind("<<ComboboxSelected>>",func)
 btn2=Button(sc,text="作者信息",command=info)
 btn2.place(x=400,y=260)
+lb3=Label(sc,text=version,font=("宋体",10))
+lb3.place(x=5,y=5)
 sc.mainloop()
