@@ -170,10 +170,8 @@ def getzb():
 from tkinter import *
 from ttkthemes import *
 from tkinter.ttk import *
-if int(platform.uname()[3].split(".")[2])>=22000 and platform.uname()[0]=='Windows':
-    sc=Tk()
-else:
-    sc=ThemedTk(theme="arc", toplevel=True, themebg=True)
+#sc=ThemedTk(theme="equilux", toplevel=True, themebg=True)
+sc=ThemedTk(theme="arc", toplevel=True, themebg=True)
 scw=sc.winfo_screenwidth()
 sch=sc.winfo_screenheight()
 w=500
@@ -190,13 +188,24 @@ except:
     urlretrieve("http://www.zlian.ga/u/1626674746qk.ico","logo.ico")
     sc.iconbitmap('logo.ico')
 lb1=Label(sc,text="请输入你想要获取皮肤的Minecraft正版账号",font=("宋体",15))
-lb1.place(x=60,y=30)
+lb1.place(x=60,y=40)
 e=Entry(sc,width=20)
-e.place(x=170,y=100)
+e.place(x=170,y=120)
 btn1=Button(sc,text="点击获取",command=getzb)
-btn1.place(x=195,y=170)
+btn1.place(x=195,y=190)
 zt=tkinter.StringVar()
 zt.set("状态：待命")
 lb2=Label(sc,textvariable=zt,font=("宋体",15))
 lb2.place(x=10,y=270)
+cmb = Combobox(sc,width=7)
+cmb.place(x=420,y=5)
+ms=("白色模式","深色模式")
+cmb["value"]=ms
+cmb.current(0)
+def func(event):
+    if cmb.get()==ms[0]:
+        sc.set_theme("arc")
+    elif cmb.get()==ms[1]:
+        sc.set_theme("equilux")
+cmb.bind("<<ComboboxSelected>>",func)
 sc.mainloop()
