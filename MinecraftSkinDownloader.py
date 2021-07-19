@@ -168,6 +168,8 @@ def getzbmain():
 def getzb():
     run_=threading.Thread(target=getzbmain)
     run_.start()
+def info():
+    os.system("start https://space.bilibili.com/505201154")
 from tkinter import *
 from ttkthemes import *
 from tkinter.ttk import *
@@ -212,4 +214,6 @@ def func(event):
     elif cmb.get()==ms[1]:
         sc.set_theme("equilux")
 cmb.bind("<<ComboboxSelected>>",func)
+btn2=Button(sc,text="作者信息",command=info)
+btn2.place(x=400,y=260)
 sc.mainloop()
