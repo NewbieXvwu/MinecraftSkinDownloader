@@ -10,6 +10,7 @@ import shutil
 from tkinter import messagebox
 import threading
 import platform
+import ctypes
 try:
     import requests
 except:
@@ -187,6 +188,9 @@ try:
 except:
     urlretrieve("http://www.zlian.ga/u/1626674746qk.ico","logo.ico")
     sc.iconbitmap('logo.ico')
+ctypes.windll.shcore.SetProcessDpiAwareness(1)
+ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
+sc.tk.call('tk', 'scaling', ScaleFactor/75)
 lb1=Label(sc,text="请输入你想要获取皮肤的Minecraft正版账号",font=("宋体",15))
 lb1.place(x=60,y=40)
 e=Entry(sc,width=20)
@@ -199,7 +203,7 @@ lb2=Label(sc,textvariable=zt,font=("宋体",15))
 lb2.place(x=10,y=270)
 cmb = Combobox(sc,width=7)
 cmb.place(x=420,y=5)
-ms=("白色模式","深色模式")
+ms=("浅色模式","深色模式")
 cmb["value"]=ms
 cmb.current(0)
 def func(event):
