@@ -1,4 +1,5 @@
-version="v1.4"
+version_int=1.5
+version="v"+str(version_int)
 from copyreg import clear_extension_cache
 import ctypes, sys
 import os
@@ -12,6 +13,7 @@ from tkinter import messagebox
 import threading
 import platform
 import ctypes
+import time
 try:
     import requests
 except:
@@ -82,14 +84,14 @@ def getzbmain():
         exit_=str(tkinter.messagebox.showwarning(title="下载完毕", message="下载完毕！"))
         zt.set("状态：待命")
         lb2.config(textvariable=zt)
-    '''exit_=str(tkinter.messagebox.askyesno(title="下载完毕", message="下载完毕！按“确认”打包皮肤成材质包，或者按“取消”打开文件！"))
+    exit_=tkinter.messagebox.askyesno(title="下载完毕", message="下载完毕！按“确认”打包皮肤成材质包，或者按“取消”打开文件！")
     if exit_==True:
         try:
             file=".\\"+id_
             shutil.rmtree(file)
             del file
         except:
-            pass
+            zt.set("状态：正在删除旧的临时目录……")
         zt.set("状态：正在创建新的临时目录……")
         lb2.config(textvariable=zt)
         file="./"+id_
@@ -126,7 +128,7 @@ def getzbmain():
         del file
         zt.set("状态：正在复制皮肤文件……")
         lb2.config(textvariable=zt)
-        mx=str(tkinter.messagebox.askyesno(title="选择皮肤模型", message="你下载的皮肤是Steve模型（手粗）还是Alex模型（手细）？\n如果你不知道，你可以先选择Steve，如果模型显示错误再改。\n是Steve模型请按下“确定”，是Alex模型请按下“取消”。"))
+        mx=tkinter.messagebox.askyesno(title="选择皮肤模型", message="你下载的皮肤是Steve模型（手粗）还是Alex模型（手细）？\n如果你不知道，你可以先选择Steve，如果模型显示错误再改。\n是Steve模型请按下“确定”，是Alex模型请按下“取消”。")
         if mx==False:
             cmd="copy "+id_+".png .\\"+id_+"\\assets\\minecraft\\textures\\entity\\alex.png"
             os.system(cmd)
@@ -144,12 +146,12 @@ def getzbmain():
         shutil.rmtree(file)
         del file
         if os.path.exists(".\\.minecraft\\resourcepacks"):
-            exit_=str(tkinter.messagebox.askyesno(title="创建材质包成功", message="成功创建材质包！\n注意：材质包会将游戏内的所有玩家的皮肤都替换成你想要的皮肤，可能会导致一些小问题！\n检测到程序目录下有Minecraft安装，如果要直接导入Minecraft，请按下“确认”，否则请按下“取消”打开材质包。"))
+            exit_=tkinter.messagebox.askyesno(title="创建材质包成功", message="成功创建材质包！\n注意：材质包会将游戏内的所有玩家的皮肤都替换成你想要的皮肤，可能会导致一些小问题！\n检测到程序目录下有Minecraft安装，如果要直接导入Minecraft，请按下“确认”，否则请按下“取消”打开材质包。")
             if exit_==True:
                 cmd="copy Skin_"+id_+".zip .\\.minecraft\\resourcepacks\\"+id_+".zip"
                 os.system(cmd)
                 del cmd
-                exit_=str(tkinter.messagebox.askyesno(title="导入成功", message="导入成功！\n是否要打开材质包文件夹？"))
+                exit_=tkinter.messagebox.askyesno(title="导入成功", message="导入成功！\n是否要打开材质包文件夹？")
                 if exit_==True:
                     start="start \"\" .\\.minecraft\\resourcepacks\\"
                     os.system(start)
@@ -158,14 +160,14 @@ def getzbmain():
                 start="start \"\" "+"\""+id_+'.zip'+"\""
                 os.system(start)
         else:
-            exit_=str(tkinter.messagebox.askyesno(title="创建材质包成功", message="创建材质包成功！注意：材质包会将游戏内的所有玩家的皮肤都替换成你想要的皮肤，可能会导致一些小问题！\n是否要打开材质包？"))
+            exit_=tkinter.messagebox.askyesno(title="创建材质包成功", message="创建材质包成功！注意：材质包会将游戏内的所有玩家的皮肤都替换成你想要的皮肤，可能会导致一些小问题！\n是否要打开材质包？")
             if exit_==True:
                 start="start \"\" "+"\"Skin_"+id_+'.zip'+"\""
                 os.system(start)
             del exit_
     else:
         start="start \"\" "+"\""+id_+'.png'+"\""
-        os.system(start)'''
+        os.system(start)
 def getzb():
     run_=threading.Thread(target=getzbmain)
     run_.start()
@@ -219,4 +221,22 @@ btn2=Button(sc,text="作者信息",command=info)
 btn2.place(x=400,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
+update = requests.get("https://gitee.com/api/v5/repos/NewbieXvwu/MinecraftSkinDownloader/releases/latest")
+update=update.text
+update=json.loads(update)
+if float(update["tag_name"])>version_int:
+    assets=update["assets"]
+    browser_download_url_list=assets[0]
+    browser_download_url=browser_download_url_list["browser_download_url"]
+    is_update=tkinter.messagebox.askyesno(title="检测到新版本", message="本程序有新版本！是否要下载？")
+    if is_update==True:
+        def autoupdate():
+            urlretrieve("http://www.zlian.ga/u/1626767438qk.bat","Update.bat")
+            urlretrieve(browser_download_url,"New_MinecraftSkinDownloader.exe")
+            os.system("start Update.bat")
+            time.sleep(1)
+            os.system("start Update.bat")
+        run_1=threading.Thread(target=autoupdate)
+        run_1.start()
+del update
 sc.mainloop()
