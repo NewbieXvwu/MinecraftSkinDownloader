@@ -1,6 +1,6 @@
 <img width="192" height="192" align="left" style="float: left; margin: 0 10px 0 0;" src="logo.png" alt="logo.png"/><br />
 # MinecraftSkinDownloader 
-![GitHub all releases](https://img.shields.io/github/downloads/NewbieXvwu/MinecraftSkinDownloader/total)  ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/NewbieXvwu/MinecraftSkinDownloader?include_prereleases)
+![GitHub all releases](https://img.shields.io/github/downloads/NewbieXvwu/MinecraftSkinDownloader/total?style=for-the-badge&logo=appveyor)  ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/NewbieXvwu/MinecraftSkinDownloader?style=for-the-badge&logo=appveyor)
 
 这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
 # 程序截图
