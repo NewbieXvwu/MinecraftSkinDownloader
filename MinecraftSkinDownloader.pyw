@@ -1,4 +1,4 @@
-version_int=1.9
+version_int=1.10
 version="v"+str(version_int)
 from copyreg import clear_extension_cache
 import ctypes, sys
@@ -119,7 +119,7 @@ def getzbmain():
             zt.set("状态：正在创建材质包说明文件……")
             lb2.config(textvariable=zt)
             filename = './'+id_+"/pack.mcmeta"
-            mcmeta="{\"pack\":{\"pack_format\":4,\"description\":\"§c",id_,"\'s Skin Resourcepack\"}}"
+            mcmeta="{\"pack\":{\"pack_format\":7,\"description\":\"§c",id_,"\'s Skin Resourcepack\"}}"
             with open(filename, 'w') as file_object:
                 file_object.write("{\"pack\":{\"pack_format\":4,\"description\":\"§cSkin Resourcepack\"}}")
             del filename
@@ -186,7 +186,7 @@ def getzbmain():
         else:
             start="start \"\" "+"\""+id_+'.png'+"\""
             os.system(start)
-def getzb():
+def getzb(ev=None):
     run_=threading.Thread(target=getzbmain)
     run_.start()
 def info():
@@ -218,6 +218,7 @@ lb1=Label(sc,text="请输入你想要获取皮肤的Minecraft正版账号",font=
 lb1.place(x=60,y=40)
 e=Entry(sc,width=20)
 e.place(x=170,y=120)
+e.bind("<Return>",getzb)
 btn1=Button(sc,text="点击获取",command=getzb)
 btn1.place(x=195,y=190)
 zt=tkinter.StringVar()
