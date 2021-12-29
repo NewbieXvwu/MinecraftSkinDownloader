@@ -39,5 +39,4 @@ jobs:
           dst: gitee/NewbieXvwu
           dst_key: ${{ secrets.GITEE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
-          static_list: "main"
           force_update: true
