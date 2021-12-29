@@ -190,7 +190,7 @@ def getzb(ev=None):
     run_=threading.Thread(target=getzbmain)
     run_.start()
 def info():
-    os.system("start https://space.bilibili.com/505201154")
+    os.system("start https://space.bilibili.com/505201154")#我的B站个人主页
 from tkinter import *
 from ttkthemes import *
 from tkinter.ttk import *
