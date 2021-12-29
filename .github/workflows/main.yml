@@ -37,6 +37,6 @@ jobs:
         with:
           src: github/NewbieXvwu
           dst: gitee/NewbieXvwu
-          dst_key: ${{ secrets.GITEE_KEY }}
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
           force_update: true
