@@ -5,7 +5,6 @@ on:
       - master
 jobs:
  
- 
   qa:
     name: pyinstaller
     runs-on: windows-latest
