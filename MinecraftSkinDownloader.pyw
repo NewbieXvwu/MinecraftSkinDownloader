@@ -1,4 +1,4 @@
-version_int=1.8
+version_int=1.9
 version="v"+str(version_int)
 from copyreg import clear_extension_cache
 import ctypes, sys
