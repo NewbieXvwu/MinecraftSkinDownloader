@@ -16,7 +16,7 @@ jobs:
         artifact: MinecraftSkinDownloader
         use-dependencies: false
         python_version: 3.10.1
-        
+        no-console: true
   Build_Windows:
     runs-on: windows-latest
     steps:
@@ -28,6 +28,7 @@ jobs:
           artifact: MinecraftSkinDownloader
           use-dependencies: false
           python_version: 3.10.1
+          no-console: true
   Mirror-To-Gitee:
     runs-on: ubuntu-latest
     name: Sync-GitHub-to-Gitee
