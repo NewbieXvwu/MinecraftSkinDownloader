@@ -28,3 +28,15 @@ jobs:
           artifact: MinecraftSkinDownloader
           use-dependencies: false
           python_version: 3.10.1
+  Mirror_To_Gitee:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v1
+      - name: 'Mirror to gitee'
+        uses: pixta-dev/repository-mirroring-action@v1
+        with:
+          target_repo_url:
+            git@gitee.com:NewbieXvwu/MinecraftSkinDownloader
+          ssh_private_key:
+            ${{ secrets.GITEE_KEY }}
