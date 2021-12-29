@@ -17,15 +17,15 @@ jobs:
         # the main python file (without .py)
         main: MinecraftSkinDownloader
         # the dist path
-        dist: ./# optional, default is ./dist
+        dist: ./
         # the version of python
-        python_version: 3.10.1# optional, default is 3.9.7
+        python_version: 3.10.1
         # the version of pyinstaller
-        pyinstaller_version: 4.7# optional, default is 4.7
+        pyinstaller_version: 4.7
         # the output exe name
-        artifact: MinecraftSkinDownloader# optional, default is main
+        artifact: MinecraftSkinDownloader
         # whether to install requirements.txt before build
-        use-dependencies: true# optional, default is true
+        use-dependencies: true
         # whether to disppear console terminal
         no-console: false
       
