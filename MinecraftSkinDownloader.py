@@ -1,4 +1,4 @@
-version_int=1.10
+version_int=2.0
 version="v"+str(version_int)
 from copyreg import clear_extension_cache
 import ctypes, sys
@@ -190,7 +190,32 @@ def getzb(ev=None):
     run_=threading.Thread(target=getzbmain)
     run_.start()
 def info():
-    os.system("start https://space.bilibili.com/505201154")
+    def opengithub():
+        os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader")
+    def opengitee():
+        os.system("start https://gitee.com/NewbieXvwu/MinecraftSkinDownloader")
+    def openbilibili():
+        os.system("start https://space.bilibili.com/505201154")
+    about=Toplevel()
+    about.title("关于本程序")
+    aboutscw=about.winfo_screenwidth()
+    aboutsch=about.winfo_screenheight()
+    aboutw=300
+    abouth=210
+    aboutx=(aboutscw-aboutw)/2
+    abouty=(aboutsch-abouth)/2
+    about.geometry("%dx%d+%d+%d"%(aboutw,abouth,aboutx,abouty))
+    about.iconbitmap('logo.ico')
+    lb4=Label(about,text="关于本程序",font=("宋体",15))
+    lb4.place(x=100,y=30)
+    lb5=Label(about,text="一个简单的Minecraft\n\n  正版皮肤下载器。",font=("宋体",15))
+    lb5.place(x=150,y=100,anchor=CENTER)
+    btn3=Button(about,text="Github",command=opengithub)
+    btn3.place(x=200,y=155)
+    btn4=Button(about,text="Gitee",command=opengitee)
+    btn4.place(x=102.5,y=155)
+    btn5=Button(about,text="Bilibili",command=openbilibili)
+    btn5.place(x=5,y=155)
 from tkinter import *
 from ttkthemes import *
 from tkinter.ttk import *
@@ -256,30 +281,33 @@ try:
         pass
 except:
     pass
-btn2=Button(sc,text="作者信息",command=info)
+btn2=Button(sc,text="关于",command=info)
 btn2.place(x=400,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
-update = requests.get("https://gitee.com/api/v5/repos/NewbieXvwu/MinecraftSkinDownloader/releases/latest")
-update=update.text
-update=json.loads(update)
-if float(update["tag_name"])>version_int:
-    assets=update["assets"]
-    browser_download_url_list=assets[0]
-    browser_download_url=browser_download_url_list["browser_download_url"]
-    is_update=tkinter.messagebox.askyesno(title="检测到新版本", message="本程序有新版本！是否要下载？")
-    if is_update==True:
-        def autoupdate():
-            btn1.config(state=DISABLED)
-            btn1.config(text="更新中……")
-            zt.set("状态：更新中，请稍候……")
-            fn=os.path.splitext(os.path.basename(__file__))[0]+os.path.splitext(os.path.basename(__file__))[1]
-            with open("Update.bat", 'w') as file_object:
-                file_object.write("@echo off\ntaskkill -f -im python.exe\ntaskkill -f -im pythonw.exe\ntaskkill -f -im "+fn+"\ndel /s /q /f "+fn+"\nren New_MinecraftSkinDownloader.exe "+fn+"\nstart "+fn)
-            urlretrieve(browser_download_url,"New_MinecraftSkinDownloader.exe")
-            os.system("start Update.bat")
-            exit()
-        run_1=threading.Thread(target=autoupdate)
-        run_1.start()
-del update
+try:
+    update = requests.get("https://gitee.com/api/v5/repos/NewbieXvwu/MinecraftSkinDownloader/releases/latest")
+    update=update.text
+    update=json.loads(update)
+    if float(update["tag_name"])>version_int:
+        assets=update["assets"]
+        browser_download_url_list=assets[0]
+        browser_download_url=browser_download_url_list["browser_download_url"]
+        is_update=tkinter.messagebox.askyesno(title="检测到新版本", message="本程序有新版本！是否要下载？")
+        if is_update==True:
+            def autoupdate():
+                btn1.config(state=DISABLED)
+                btn1.config(text="更新中……")
+                zt.set("状态：更新中，请稍候……")
+                fn=os.path.splitext(os.path.basename(__file__))[0]+os.path.splitext(os.path.basename(__file__))[1]
+                with open("Update.bat", 'w') as file_object:
+                    file_object.write("@echo off\ntaskkill -f -im python.exe\ntaskkill -f -im pythonw.exe\ntaskkill -f -im "+fn+"\ndel /s /q /f "+fn+"\nren New_MinecraftSkinDownloader.exe "+fn+"\nstart "+fn)
+                urlretrieve(browser_download_url,"New_MinecraftSkinDownloader.exe")
+                os.system("start Update.bat")
+                exit()
+            run_1=threading.Thread(target=autoupdate)
+            run_1.start()
+    del update
+except:
+    pass
 sc.mainloop()
