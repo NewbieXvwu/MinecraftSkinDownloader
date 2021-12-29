@@ -10,25 +10,16 @@ jobs:
     name: pyinstaller
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Set up Python
-        with:
-          python-version: 3.10
-      - name: Run unit tests
-        run: |
-          pip install pyinstaller
-          pyinstaller -F -w -i logo.ico MinecraftSkinDownloader.pyw
-          del /F /S /Q __pycache__
-          del /F /S /Q build
-          del /F /S MinecraftSkinDownloader.spec
-          rd __pycache__
-          rd build\MinecraftSkinDownloader
-          rd build
-          move /Y dist\MinecraftSkinDownloader.exe .\MinecraftSkinDownloader.exe
-          rd dist
-      - name: Wemake Python Stylguide
-        continue-on-error: true
-        with:
-          reporter: 'github-pr-review'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: PyInstaller Windows
+      # You may pin to the exact commit or the version.
+      # uses: JackMcKew/pyinstaller-action-windows@a8dee21ad01bbc7e7363d445bb632691b95ba057
+      uses: JackMcKew/pyinstaller-action-windows@v0.1.2
+      with:
+        # Directory containing source code (optional requirements.txt).
+        path: src# default is src
+        # Specify a custom URL for PYPI
+        pypi_url: https://pypi.python.org/# optional, default is https://pypi.python.org/
+        # Specify a custom URL for PYPI Index
+        pypi_index_url: https://pypi.python.org/simple# optional, default is https://pypi.python.org/simple
+        # Specify a file path for .spec file
+        spec: MinecraftSkinDownloader.spec# optional, default is 
