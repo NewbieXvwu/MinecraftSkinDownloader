@@ -25,7 +25,7 @@ jobs:
         # the output exe name
         artifact: MinecraftSkinDownloader
         # whether to install requirements.txt before build
-        use-dependencies: true
+        use-dependencies: false
         # whether to disppear console terminal
         no-console: false
       
