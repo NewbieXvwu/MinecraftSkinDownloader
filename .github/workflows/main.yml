@@ -7,7 +7,7 @@ jobs:
  
   qa:
     name: pyinstaller
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
     - name: PyInstaller Windows
       # You may pin to the exact commit or the version.
