@@ -2,7 +2,7 @@ name: Python Pull Request Workflow
 on:
   push:
     branches:    
-      - master
+      - main
 jobs:
  
   qa:
