@@ -1,4 +1,4 @@
-version_int=2.0
+version_int=2.1
 version="v"+str(version_int)
 from copyreg import clear_extension_cache
 import ctypes, sys
@@ -234,7 +234,7 @@ sc.minsize(w,h)
 try:
     sc.iconbitmap('logo.ico')
 except:
-    urlretrieve("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/raw/assets/logo.ico","logo.ico")
+    urlretrieve("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
     sc.iconbitmap('logo.ico')
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
 ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
