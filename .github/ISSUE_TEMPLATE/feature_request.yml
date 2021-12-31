@@ -1,9 +1,10 @@
 name: 功能请求
 description: 想要新功能
-title: "[功能请求] "
+title: "[功能请求]"
 labels: ["enhancement"]
 
 body:
+
   - type: textarea
     attributes:
       label: 你想要什么新功能？
