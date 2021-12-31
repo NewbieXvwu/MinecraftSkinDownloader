@@ -1,0 +1,30 @@
+name: 功能请求
+description: 想要新功能
+title: "[功能请求] "
+labels: ["enhancement"]
+
+body:
+  - type: textarea
+    attributes:
+      label: 你想要什么新功能？
+      description: |
+        你想要什么新功能或者什么改变？这会带来什么提升？请清晰而详细地描述你的需求，如果可以的话最好附带截图。
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 额外说明
+      description: |
+        添加其它关于你的需求的说明。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: know
+    attributes:
+      label: 这个issue是唯一的
+      options:
+        - label: 我已经搜索了问题追踪器，没有找到描述我的问题的。
+          required: true

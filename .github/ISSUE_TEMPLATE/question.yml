@@ -1,0 +1,41 @@
+name: 提问
+description: 对使用存在困惑
+title: "[提问] "
+labels: ["question"]
+
+body:
+  - type: dropdown
+    id: Question
+    attributes:
+      label: 问题类型
+      options:
+        - "使用"
+        - "代码"
+        - "其他"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: 描述你的问题
+      description: |
+        请清晰而详细地描述你的问题，如果可以的话最好附带截图。
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 额外说明
+      description: |
+        添加其它关于你的问题的说明。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: know
+    attributes:
+      label: 这个issue是唯一的
+      options:
+        - label: 我已经搜索了问题追踪器，没有找到描述我的问题的。
+          required: true
