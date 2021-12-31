@@ -17,6 +17,7 @@ body:
 
   - type: textarea
     attributes:
+      id: question
       label: 描述你的问题
       description: |
         请清晰而详细地描述你的问题，如果可以的话最好附带截图。
