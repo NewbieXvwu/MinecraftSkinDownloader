@@ -4,8 +4,8 @@ title: "[功能请求]"
 labels: ["enhancement"]
 
 body:
-
   - type: textarea
+    id: what
     attributes:
       label: 你想要什么新功能？
       description: |
