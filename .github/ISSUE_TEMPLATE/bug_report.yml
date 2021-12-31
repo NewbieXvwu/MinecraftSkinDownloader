@@ -1,0 +1,59 @@
+name: 漏洞反馈
+description: 反馈问题，帮助我们改进
+title: "[漏洞] "
+labels: ["bug"]
+
+body:
+  - type: input
+    id: version
+    attributes:
+      label: 版本信息
+      description: |
+        你使用的 MinecraftSkinDownloader 版本为？
+      placeholder: MinecraftSkinDownloader 版本
+    validations:
+      required: true
+
+  - type: textarea
+    id: desc
+    attributes:
+      label: 问题描述
+      description: |
+        你遇到了什么问题？如果是网络相关的问题，先检查自己的网络连接。请清晰而详细地描述问题所在，如果可以的话最好附带出问题的截图。
+    validations:
+      required: true
+
+  - type: textarea
+    id: repproduce
+    attributes:
+      label: 复现问题
+      description: |
+        这个问题是怎么触发的？请详细告诉我们是怎样出现这个情况的。
+    validations:
+      required: false
+
+  - type: textarea
+    id: excepted
+    attributes:
+      label: 预期行为
+      description: |
+        请清晰而简单地描述你希望它本该执行的操作。
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: know
+    attributes:
+      label: 这个issue是唯一的
+      options:
+        - label: 我已经搜索了问题追踪器，没有找到描述我的问题的。
+          required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 额外说明
+      description: |
+        添加其他关于此问题的说明。
+    validations:
+      required: false
