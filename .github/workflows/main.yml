@@ -41,3 +41,8 @@ jobs:
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
           force_update: true
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: executable
+          path: dist
