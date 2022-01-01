@@ -9,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: pip install packages
+    - name: Install pip Packages
       run: |
-        sudo pip install requests
         sudo apt-get install python3-tk
+        sudo pip install requests
         sudo pip install ttkthemes
-    - name: Test Build Python Exe
+    - name: Build Python Exe
       uses: eric2788/pyinstaller-build@patch/icon
       with:
         main: MinecraftSkinDownloader
@@ -32,11 +32,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: pip install packages
+      - name: Install pip Packages
         run: |
           pip install requests
           pip install ttkthemes
-      - name: Test Build Python Exe
+      - name: Build Python Exe
         uses: eric2788/pyinstaller-build@patch/icon
         with:
           main: MinecraftSkinDownloader
