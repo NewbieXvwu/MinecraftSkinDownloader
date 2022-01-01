@@ -9,11 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install pip Packages
-      run: |
-        sudo apt-get install python3-tk
-        sudo pip install requests
-        sudo pip install ttkthemes
     - name: Build Python Executable File
       uses: NewbieXvwu/pyinstaller-build@patch-icon-import
       with:
@@ -33,10 +28,6 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install pip Packages
-        run: |
-          pip install requests
-          pip install ttkthemes
       - name: Build Python Executable File
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import
         with:
