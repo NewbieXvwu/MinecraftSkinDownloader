@@ -15,7 +15,7 @@ jobs:
         sudo pip install requests
         sudo pip install ttkthemes
     - name: Build Python Exe
-      uses: eric2788/pyinstaller-build@patch/icon
+      uses: NewbieXvwu/pyinstaller-build@patch-icon-import
       with:
         main: MinecraftSkinDownloader
         artifact: MinecraftSkinDownloader
@@ -37,7 +37,7 @@ jobs:
           pip install requests
           pip install ttkthemes
       - name: Build Python Exe
-        uses: eric2788/pyinstaller-build@patch/icon
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import
         with:
           main: MinecraftSkinDownloader
           artifact: MinecraftSkinDownloader
