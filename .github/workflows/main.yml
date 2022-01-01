@@ -22,7 +22,7 @@ jobs:
         use-dependencies: false
         python_version: 3.10.1
         no-console: true
-        icon: logo.ico
+        icon: logo
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
@@ -44,7 +44,7 @@ jobs:
           use-dependencies: false
           python_version: 3.10.1
           no-console: true
-          icon: logo.ico
+          icon: logo
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
