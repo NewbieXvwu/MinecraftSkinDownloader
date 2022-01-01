@@ -12,7 +12,7 @@ jobs:
     - name: pip install packages
       run: |
         sudo pip install requests
-        sudo pip install tkinter
+        sudo apt-get install python3-tk
         sudo pip install ttkthemes
     - name: Test Build Python Exe
       uses: eric2788/pyinstaller-build@patch/icon
@@ -35,7 +35,6 @@ jobs:
       - name: pip install packages
         run: |
           pip install requests
-          pip install tkinter
           pip install ttkthemes
       - name: Test Build Python Exe
         uses: eric2788/pyinstaller-build@patch/icon
