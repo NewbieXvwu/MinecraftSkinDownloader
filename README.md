@@ -7,7 +7,7 @@
 ![image](https://user-images.githubusercontent.com/87637612/147638300-bc349c33-950e-4caa-b4f0-eef3617861d6.png)
 ![image](https://user-images.githubusercontent.com/87637612/147638325-210b7b9f-c2b9-4675-bcfc-168ce6f14159.png)
 
-操作系统：Windows 11 Build 22000.376
+操作系统：<img src="https://badgen.net/badge/icon/Windows%2011?icon=windows&label"> Build 22000.376
 
 使用软件：
 - 
