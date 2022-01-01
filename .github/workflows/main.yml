@@ -9,14 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: pip install packages
+      run: |
+        sudo pip install requests
+        sudo pip install ttkthemes
     - name: Test Build Python Exe
-      uses: eric2788/pyinstaller-build@master
+      uses: eric2788/pyinstaller-build@patch/icon
       with:
         main: MinecraftSkinDownloader
         artifact: MinecraftSkinDownloader
         use-dependencies: false
         python_version: 3.10.1
         no-console: true
+        icon: logo.ico
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
@@ -26,14 +31,19 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
+      - name: pip install packages
+        run: |
+          sudo pip install requests
+          sudo pip install ttkthemes
       - name: Test Build Python Exe
-        uses: eric2788/pyinstaller-build@master
+        uses: eric2788/pyinstaller-build@patch/icon
         with:
           main: MinecraftSkinDownloader
           artifact: MinecraftSkinDownloader
           use-dependencies: false
           python_version: 3.10.1
           no-console: true
+          icon: logo.ico
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
