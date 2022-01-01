@@ -23,6 +23,7 @@ jobs:
         python_version: 3.10.1
         no-console: true
         icon: logo
+        linux: true
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
