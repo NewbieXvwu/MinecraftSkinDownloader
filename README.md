@@ -19,3 +19,18 @@
 - 
 - ttkthemes
 - requests
+
+# 构建
+
+如果您想要在Windows 7上运行本程序，目前的解决方案是安装[Python 3.8.10](https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe)并进行构建。
+
+在构建之前，确保你已经安装了Python 3.x。
+
+经过测试的版本是Python 3.10.1。
+
+    pip install pyinstaller
+	pip install requests
+	pip install ttkthemes
+	build.bat
+
+注意：目前由于我没有测试环境和经验，Linux不受支持，基本上能跑不能用……
