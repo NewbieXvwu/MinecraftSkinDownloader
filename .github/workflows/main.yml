@@ -54,3 +54,8 @@ jobs:
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
           force_update: true
+  Download_Release_to_Test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download the Release to Test
+      run: wget https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/download/2.1/MinecraftSkinDownloader.exe
