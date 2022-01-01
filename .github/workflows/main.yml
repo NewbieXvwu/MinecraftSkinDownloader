@@ -62,8 +62,3 @@ jobs:
         uses: mheap/debug-artifact@v1
         env:
           GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
-  Download_Release_to_Test:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Download the Release to Test
-      run: wget https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/download/2.1/MinecraftSkinDownloader.exe
