@@ -42,24 +42,6 @@ jobs:
         with:
           name: Build_Result_Windows
           path: dist
-  Build_MacOS:
-    runs-on: macos-11
-    steps:
-      - uses: actions/checkout@v2
-      - name: Build Python Executable File
-        uses: NewbieXvwu/pyinstaller-build@patch-icon-import
-        with:
-          main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader
-          use-dependencies: false
-          python_version: 3.10.1
-          no-console: true
-          icon: logo
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Build_Result_MacOS
-          path: dist
   Mirror-To-Gitee:
     runs-on: ubuntu-latest
     name: Sync-GitHub-to-Gitee
