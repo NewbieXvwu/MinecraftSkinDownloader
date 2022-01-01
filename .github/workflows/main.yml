@@ -54,6 +54,14 @@ jobs:
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
           force_update: true
+  debug-artifacts:
+    name: Debug Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Artifacts
+        uses: mheap/debug-artifact@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
   Download_Release_to_Test:
     runs-on: ubuntu-latest
     steps:
