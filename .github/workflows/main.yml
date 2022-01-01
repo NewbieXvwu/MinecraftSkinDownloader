@@ -17,6 +17,11 @@ jobs:
         use-dependencies: false
         python_version: 3.10.1
         no-console: true
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: executable
+        path: dist
   Build_Windows:
     runs-on: windows-latest
     steps:
@@ -29,6 +34,11 @@ jobs:
           use-dependencies: false
           python_version: 3.10.1
           no-console: true
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: executable
+          path: dist
   Mirror-To-Gitee:
     runs-on: ubuntu-latest
     name: Sync-GitHub-to-Gitee
@@ -41,8 +51,3 @@ jobs:
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
           force_update: true
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: executable
-          path: dist
