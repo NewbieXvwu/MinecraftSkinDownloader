@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  Build_Linux_x64:
+  Build_Linux:
     runs-on: ubuntu-latest
     name: Build on Linux x64
     steps:
@@ -44,26 +44,6 @@ jobs:
         with:
           name: Build_Result_Windows
           path: dist
-  Build_Linux_x86:
-    runs-on: ubuntu-latest
-    name: Build on Linux x86
-    steps:
-    - uses: actions/checkout@v2
-    - name: Build Python Executable File
-      uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86
-      with:
-        main: MinecraftSkinDownloader
-        artifact: MinecraftSkinDownloader
-        use-dependencies: false
-        python_version: 3.10.1
-        no-console: true
-        icon: logo
-        linux: true
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: Build_Result_Linux
-        path: dist
   Build_Windows_x86:
     runs-on: windows-2022
     name: Build on Windows x86
