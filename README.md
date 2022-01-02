@@ -9,10 +9,10 @@
 注：Gitee有1~2分钟的同步延迟
 
 # 程序截图
-![image](https://user-images.githubusercontent.com/87637612/147638300-bc349c33-950e-4caa-b4f0-eef3617861d6.png)
-![image](https://user-images.githubusercontent.com/87637612/147638325-210b7b9f-c2b9-4675-bcfc-168ce6f14159.png)
+<div align=center><img src="https://user-images.githubusercontent.com/87637612/147638300-bc349c33-950e-4caa-b4f0-eef3617861d6.png"/></div>
+<div align=center><img src="https://user-images.githubusercontent.com/87637612/147638325-210b7b9f-c2b9-4675-bcfc-168ce6f14159.png"/></div>
 
-操作系统：<img src="https://badgen.net/badge/icon/Windows%2011?icon=windows&label"> Build 22000.376
+注：操作系统<img src="https://badgen.net/badge/icon/Windows%2011 Build 22000.376?icon=windows&label">
 
 使用软件：
 - 
@@ -24,6 +24,16 @@
 - 
 - ttkthemes
 - requests
+
+# 下载
+
+你可以在[Release](https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases)下载稳定版。
+
+本仓库配置了Github Action，你可以在[Action](https://github.com/NewbieXvwu/MinecraftSkinDownloader/actions)下载测试版。
+
+<div align=center><img src="https://user-images.githubusercontent.com/87637612/147869113-c9567028-17d5-4d63-8e03-a02ad5bbf3a6.png"/></div>
+
+<div align=center><img src="https://user-images.githubusercontent.com/87637612/147869119-6cd07534-0279-44f8-a945-1be505799da4.png"/></div>
 
 # 构建
 
