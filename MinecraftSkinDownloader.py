@@ -1,9 +1,17 @@
-version_int=2.2
-ispreview=True
-if ispreview:
-    version="v"+str(version_int)+" Preview"
+'''
+MinecraftSkinDownloader
+Github:https://github.com/NewbieXvwu/MinecraftSkinDownloader
+Gitee:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
+Author:NewbieXvwu
+'''
+version_int=2.2#程序主版本号
+ispreview=True#程序是否是预览版
+previewversion="2"#预览版本号（不自动更新）
+if ispreview:#生成字符串版的版本号
+    version="v"+str(version_int)+" Preview "+previewversion
 else:
     version="v"+str(version_int)
+#导入本地库（有些没用到，屎山懒得翻了）
 from copyreg import clear_extension_cache
 import ctypes, sys
 import os
@@ -19,6 +27,7 @@ import platform
 import ctypes
 import time
 import winreg
+#尝试安装并导入第三方库
 try:
     import requests
 except:
@@ -40,7 +49,8 @@ else:
         os.system("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkthemes")
         print("安装成功！")
         import ttkthemes
-def getzbmain():
+#定义函数
+def getzbmain():#主函数
     id_=e.get()
     if id_=="":
         tkinter.messagebox.showerror(title='错误', message='请填写内容！') 
@@ -190,10 +200,10 @@ def getzbmain():
         else:
             start="start \"\" "+"\""+id_+'.png'+"\""
             os.system(start)
-def getzb(ev=None):
+def getzb(ev=None):#多线程运行主函数，防止主线程GUI卡死
     run_=threading.Thread(target=getzbmain)
     run_.start()
-def info():
+def info():#关于页面
     def opengithub():
         os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader")
     def opengitee():
@@ -220,11 +230,35 @@ def info():
     btn4.place(x=102.5,y=155)
     btn5=Button(about,text="Bilibili",command=openbilibili)
     btn5.place(x=5,y=155)
+def TryUpdate(update_url):#尝试更新
+    update=requests.get(update_url)
+    update=update.text
+    update=json.loads(update)
+    if float(update["tag_name"])>version_int:
+        assets=update["assets"]
+        browser_download_url_list=assets[0]
+        browser_download_url=browser_download_url_list["browser_download_url"]
+        is_update=tkinter.messagebox.askyesno(title="检测到新版本", message="本程序有新版本！是否要下载？")
+        if is_update==True:
+            def autoupdate():
+                btn1.config(state=DISABLED)
+                btn1.config(text="更新中……")
+                zt.set("状态：更新中，请稍候……")
+                fn=os.path.splitext(os.path.basename(__file__))[0]+os.path.splitext(os.path.basename(__file__))[1]
+                with open("Update.bat", 'w') as file_object:
+                    file_object.write("@echo off\ntaskkill -f -im python.exe\ntaskkill -f -im pythonw.exe\ntaskkill -f -im "+fn+"\ndel /s /q /f "+fn+"\nren New_MinecraftSkinDownloader.exe "+fn+"\nstart "+fn)
+                urlretrieve(browser_download_url,"New_MinecraftSkinDownloader.exe")
+                os.system("start Update.bat")
+                exit()
+            run_1=threading.Thread(target=autoupdate)
+            run_1.start()
+    del update
 from tkinter import *
 from ttkthemes import *
 from tkinter.ttk import *
 #sc=ThemedTk(theme="equilux", toplevel=True, themebg=True)
-sc=ThemedTk(theme="arc", toplevel=True, themebg=True)
+sc=ThemedTk(theme="arc", toplevel=True, themebg=True)#使用ttkthemes的修改版Tk()
+#窗口居中
 scw=sc.winfo_screenwidth()
 sch=sc.winfo_screenheight()
 w=500
@@ -235,16 +269,21 @@ sc.title("Minecraft正版皮肤下载器"+version+" By 萌新欻無")
 sc.geometry("%dx%d+%d+%d"%(w,h,x,y))
 sc.maxsize(w,h)
 sc.minsize(w,h)
-try:
+try:#从双源尝试下载Logo
     sc.iconbitmap('logo.ico')
 except:
-    urlretrieve("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
-    sc.iconbitmap('logo.ico')
-ctypes.windll.shcore.SetProcessDpiAwareness(1)
+    try:
+        urlretrieve("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
+        sc.iconbitmap('logo.ico')
+    except:
+        urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
+        sc.iconbitmap('logo.ico')
+ctypes.windll.shcore.SetProcessDpiAwareness(1)#高DPI适配
 ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
 sc.tk.call('tk', 'scaling', ScaleFactor/75)
-lb1=Label(sc,text="请输入你想要获取皮肤的Minecraft正版账号",font=("宋体",15))
-lb1.place(x=60,y=40)
+#主屏幕组件初始化
+lb1=Label(sc,text="请输入Minecraft正版账号名称",font=("宋体",15))
+lb1.place(x=110,y=50)
 e=Entry(sc,width=20)
 e.place(x=170,y=120)
 e.bind("<Return>",getzb)
@@ -265,7 +304,7 @@ def func(event):
     elif cmb.get()==ms[1]:
         sc.set_theme("equilux")
 cmb.bind("<<ComboboxSelected>>",func)
-try:
+try:#读取Windows 10深色模式
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize")
     try:
         i = 0
@@ -289,33 +328,15 @@ btn2=Button(sc,text="关于",command=info)
 btn2.place(x=400,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
-if ispreview:
+if ispreview:#预览版警告
     if not tkinter.messagebox.askyesno(title="您正在使用预览版", message="您正在使用的版本为"+version+"，这是一个预览版。\n使用预览版可能会带来一些不可预知的问题！\n您是否要继续？"):
         os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
         exit()
 try:
-    update = requests.get("https://gitee.com/api/v5/repos/NewbieXvwu/MinecraftSkinDownloader/releases/latest")
-    update=update.text
-    update=json.loads(update)
-    if float(update["tag_name"])>version_int:
-        assets=update["assets"]
-        browser_download_url_list=assets[0]
-        browser_download_url=browser_download_url_list["browser_download_url"]
-        is_update=tkinter.messagebox.askyesno(title="检测到新版本", message="本程序有新版本！是否要下载？")
-        if is_update==True:
-            def autoupdate():
-                btn1.config(state=DISABLED)
-                btn1.config(text="更新中……")
-                zt.set("状态：更新中，请稍候……")
-                fn=os.path.splitext(os.path.basename(__file__))[0]+os.path.splitext(os.path.basename(__file__))[1]
-                with open("Update.bat", 'w') as file_object:
-                    file_object.write("@echo off\ntaskkill -f -im python.exe\ntaskkill -f -im pythonw.exe\ntaskkill -f -im "+fn+"\ndel /s /q /f "+fn+"\nren New_MinecraftSkinDownloader.exe "+fn+"\nstart "+fn)
-                urlretrieve(browser_download_url,"New_MinecraftSkinDownloader.exe")
-                os.system("start Update.bat")
-                exit()
-            run_1=threading.Thread(target=autoupdate)
-            run_1.start()
-    del update
+    TryUpdate("https://gitee.com/api/v5/repos/NewbieXvwu/MinecraftSkinDownloader/releases/latest")
 except:
-    pass
+    try:
+        TryUpdate("https://api.github.com/repos/NewbieXvwu/MinecraftSkinDownloader/releases/lates")
+    except:
+        pass
 sc.mainloop()
