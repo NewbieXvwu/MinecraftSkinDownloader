@@ -24,7 +24,7 @@
 
 如果您想要在Windows 7上运行本程序，目前的解决方案是安装[Python 3.8.10](https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe)并进行构建。
 
-在构建之前，确保你已经安装了Python 3.x。
+在构建之前，确保您已经安装了Python 3.x。
 
 经过测试的版本是Python 3.10.1。
 
