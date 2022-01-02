@@ -64,7 +64,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build_Windows_x64
+          name: Build_Windows_x64_Win7
           path: dist
   Build_Windows_x86:
     runs-on: windows-2022
@@ -85,6 +85,26 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build_Windows_x86
+          path: dist
+  Build_Windows_x86_Win7:
+    runs-on: windows-2022
+    name: Build on Windows x86 for Windows 7
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Python Executable File
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86
+        with:
+          main: MinecraftSkinDownloader
+          artifact: MinecraftSkinDownloader
+          use-dependencies: false
+          python_version: 3.8.10
+          no-console: true
+          icon: logo
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build_Windows_x86_Win7
           path: dist
   Mirror-To-Gitee:
     runs-on: ubuntu-latest
