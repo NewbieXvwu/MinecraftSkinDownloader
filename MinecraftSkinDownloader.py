@@ -1,5 +1,9 @@
-version_int=2.1
-version="v"+str(version_int)
+version_int=2.2
+ispreview=True
+if ispreview:
+    version="v"+str(version_int)+" Preview"
+else:
+    version="v"+str(version_int)
 from copyreg import clear_extension_cache
 import ctypes, sys
 import os
@@ -285,6 +289,10 @@ btn2=Button(sc,text="关于",command=info)
 btn2.place(x=400,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
+if ispreview:
+    if not tkinter.messagebox.askyesno(title="您正在使用预览版", message="您正在使用的版本为"+version+"，这是一个预览版。\n使用预览版可能会带来一些不可预知的问题！\n您是否要继续？"):
+        os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
+        exit()
 try:
     update = requests.get("https://gitee.com/api/v5/repos/NewbieXvwu/MinecraftSkinDownloader/releases/latest")
     update=update.text
