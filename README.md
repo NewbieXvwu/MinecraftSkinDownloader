@@ -17,9 +17,9 @@
 
 使用软件：
 - 
-- <img src="https://img.shields.io/badge/-Python 3.10.1-black?style=flat&logo=python&logoColor=white&link=https://www.python.org/downloads/release/python-3101">
+- <a href="https://www.python.org/downloads/release/python-3101"><img src="https://img.shields.io/badge/-Python 3.10.1-black?style=flat&logo=python&logoColor=white&link=https://www.python.org/downloads/release/python-3101"></a>
 
-- <img src="http://img.shields.io/badge/-VS%20Code 1.63.2-007ACC?style=flat&logo=visual%20studio%20code&logoColor=white&link=https://code.visualstudio.com">
+- <a href="https://code.visualstudio.com"><img src="http://img.shields.io/badge/-VS%20Code 1.63.2-007ACC?style=flat&logo=visual%20studio%20code&logoColor=white&link=https://code.visualstudio.com"></a>
 
 使用的第三方库：
 - 
@@ -38,15 +38,15 @@
 
 # 构建
 
-如果您想要在Windows 7上运行本程序，目前的解决方案是安装[Python 3.8.10](https://www.python.org/ftp/python/3.8.10/python-3.8.10-amd64.exe)并进行构建。
+如果您想要在Windows 7上运行本程序，目前的解决方案是安装<a href="https://www.python.org/downloads/release/python-3810"><img src="https://img.shields.io/badge/-Python 3.8.10-black?style=flat&logo=python&logoColor=white&link=https://www.python.org/downloads/release/python-3810"></a>并进行构建。
 
-在构建之前，确保您已经安装了Python 3.x。
+在构建之前，确保您已经安装了<a href="https://www.python.org"><img src="https://img.shields.io/badge/-Python 3.x-blue?style=flat&logo=python&logoColor=white&link=https://www.python.org"></a>。
 
-经过测试的版本是Python 3.10.1。
+经过测试的版本是<a href="https://www.python.org/downloads/release/python-3101"><img src="https://img.shields.io/badge/-Python 3.10.1-black?style=flat&logo=python&logoColor=white&link=https://www.python.org/downloads/release/python-3101"></a>。
 
     pip install pyinstaller
 	pip install requests
 	pip install ttkthemes
 	build.bat
 
-注意：目前由于我没有测试环境和经验，Linux不受支持，基本上能跑不能用……
+**注意：目前由于我没有测试环境和经验，Linux不受支持，基本上能跑不能用……**
