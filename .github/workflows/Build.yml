@@ -17,7 +17,7 @@ jobs:
       uses: NewbieXvwu/pyinstaller-build@patch-icon-import
       with:
         main: MinecraftSkinDownloader
-        artifact: MinecraftSkinDownloader
+        artifact: MinecraftSkinDownloader_Linux
         use-dependencies: false
         python_version: 3.10.1
         no-console: true
@@ -27,7 +27,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: Build_Linux
-        path: dist
+        path: dist/MinecraftSkinDownloader_Linux
   Build_Windows_x64:
     runs-on: windows-2022
     name: Build on Windows x64
@@ -38,7 +38,7 @@ jobs:
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import
         with:
           main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader
+          artifact: MinecraftSkinDownloader_Windows_x64
           use-dependencies: false
           python_version: 3.10.1
           no-console: true
@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build_Windows_x64
-          path: dist
+          path: dist/MinecraftSkinDownloader_Windows_x64.exe
   Build_Windows_x86:
     runs-on: windows-2022
     name: Build on Windows x86
@@ -58,7 +58,7 @@ jobs:
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86
         with:
           main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader
+          artifact: MinecraftSkinDownloader_Windows_x86
           use-dependencies: false
           python_version: 3.10.1
           no-console: true
@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build_Windows_x86
-          path: dist
+          path: dist/MinecraftSkinDownloader_Windows_x86.exe
   Build_Windows_x64_Win7:
     runs-on: windows-2022
     name: Build on Windows x64 for Windows 7
@@ -78,7 +78,7 @@ jobs:
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import
         with:
           main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader
+          artifact: MinecraftSkinDownloader_Windows7_x64
           use-dependencies: false
           python_version: 3.8.10
           no-console: true
@@ -87,7 +87,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build_Windows_x64_Windows7
-          path: dist
+          path: dist/MinecraftSkinDownloader_Windows7_x64.exe
   Build_Windows_x86_win7:
     runs-on: windows-2022
     name: Build on Windows x86 for Windows 7
@@ -98,7 +98,7 @@ jobs:
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86
         with:
           main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader
+          artifact: MinecraftSkinDownloader_Windows7_x86
           use-dependencies: false
           python_version: 3.8.10
           no-console: true
@@ -107,7 +107,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build_Windows_x86_Windows7
-          path: dist
+          path: dist/MinecraftSkinDownloader_Windows7_x86.exe
   Mirror-To-Gitee:
     runs-on: ubuntu-latest
     name: Sync GitHub to Gitee
