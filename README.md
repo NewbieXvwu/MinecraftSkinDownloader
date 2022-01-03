@@ -42,7 +42,7 @@
 
 <s>如果您想要在Windows 7上运行本程序，目前的解决方案是安装<a href="https://www.python.org/downloads/release/python-3810"><img src="https://img.shields.io/badge/-Python 3.8.10-black?style=flat&logo=python&logoColor=white&link=https://www.python.org/downloads/release/python-3810"></a>并进行构建。</s>
 	
-**注意：从[V2.2 Preview 3](https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/tag/2.2-Preview.3)开始，您可以在[Github Action](https://github.com/NewbieXvwu/MinecraftSkinDownloader/actions)下载适用于Windows 7的版本**（基于<a href="https://www.python.org/downloads/release/python-3810"><img src="https://img.shields.io/badge/-Python 3.8.10-black?style=flat&logo=python&logoColor=white&link=https://www.python.org/downloads/release/python-3810"></a>）**，但是这仅是为了试用，可能会产生一些问题。**
+**注意：从[V2.2 Preview 3](https://github.com/NewbieXvwu/MinecraftSkinDownloader/commit/b94fbe8be1cc1efc265218391f0b970f320309a6)开始，您可以在[Github Action](https://github.com/NewbieXvwu/MinecraftSkinDownloader/actions)下载适用于Windows 7的版本**（基于<a href="https://www.python.org/downloads/release/python-3810"><img src="https://img.shields.io/badge/-Python 3.8.10-black?style=flat&logo=python&logoColor=white&link=https://www.python.org/downloads/release/python-3810"></a>）**，但是这仅是为了试用，可能会产生一些问题。**
 	
 **我们建议您在[新版本的Windows](https://www.microsoft.com/zh-cn/software-download/windows10)中使用本程序！**
 
