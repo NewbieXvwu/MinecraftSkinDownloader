@@ -6,7 +6,7 @@ Author:NewbieXvwu
 '''
 version_int=2.2#程序主版本号
 ispreview=True#程序是否是预览版
-previewversion="2"#预览版本号（不自动更新）
+previewversion="3"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
     version="v"+str(version_int)+" Preview "+previewversion
 else:
@@ -278,9 +278,12 @@ except:
     except:
         urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
         sc.iconbitmap('logo.ico')
-ctypes.windll.shcore.SetProcessDpiAwareness(1)#高DPI适配
-ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
-sc.tk.call('tk', 'scaling', ScaleFactor/75)
+try:
+    ctypes.windll.shcore.SetProcessDpiAwareness(1)#高DPI适配
+    ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
+    sc.tk.call('tk', 'scaling', ScaleFactor/75)
+except:
+    pass
 #主屏幕组件初始化
 lb1=Label(sc,text="请输入Minecraft正版账号名称",font=("宋体",15))
 lb1.place(x=110,y=50)
