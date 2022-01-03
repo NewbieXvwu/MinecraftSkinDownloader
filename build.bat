@@ -1,5 +1,5 @@
 @echo off
-pyinstaller -F -w -i logo.ico MinecraftSkinDownloader.pyw
+pyinstaller -F -w -i logo.ico MinecraftSkinDownloader.py
 del /F /S /Q __pycache__
 del /F /S /Q build
 del /F /S MinecraftSkinDownloader.spec
