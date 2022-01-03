@@ -6,7 +6,7 @@ Author:NewbieXvwu
 '''
 version_int=2.2#程序主版本号
 ispreview=True#程序是否是预览版
-previewversion="3"#预览版本号（不自动更新）
+previewversion="4"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
     version="v"+str(version_int)+" Preview "+previewversion
 else:
@@ -31,24 +31,35 @@ import winreg
 try:
     import requests
 except:
-    print("没有程序必要的库，正在安装……")
-    os.system("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests")
-    import requests
-    from requests import delete
+    #没有安装requests
+    print("没有程序必要的运行库，正在安装……")
+    result=os.popen("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests").read()
+    if "Successfully installed" in result:#安装requests成功
+        print("安装进度：50%")
+        import requests
+        from requests import delete
+    else:#安装requests失败
+        print("运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\npip日志：\n",result,sep="")
     try:
         import ttkthemes
-    except:
-        os.system("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkthemes")
-        print("安装成功！")
-        import ttkthemes
-else:
+    except:#没有安装ttkthemes
+        result=os.popen("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkthemes").read()
+        if "Successfully installed" in result:#安装ttkthemes成功
+            print("安装运行库成功！")
+            import ttkthemes
+        else:#安装ttkthemes失败
+            print("运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\npip日志：\n",result,sep="")
+else:#安装了requests
     try:
         import ttkthemes
-    except:
-        print("没有程序必要的库，正在安装……")
-        os.system("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkthemes")
-        print("安装成功！")
-        import ttkthemes
+    except:#没有安装ttkthemes
+        print("没有程序必要的运行库，正在安装……")
+        result=os.popen("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkthemes").read()
+        if "Successfully installed" in result:#安装ttkthemes成功
+            print("安装运行库成功！")
+            import ttkthemes
+        else:#安装ttkthemes失败
+            print("运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\npip日志：\n",result,sep="")
 #定义函数
 def getzbmain():#主函数
     id_=e.get()
