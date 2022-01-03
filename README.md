@@ -54,4 +54,11 @@
 	pip install ttkthemes
 	build.bat
 
+如果您连接到Pypi官方源的网络较差，您也可以使用清华大学的镜像源。
+
+    pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyinstaller
+	pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests
+	pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkthemes
+	build.bat
+
 **注意：目前由于我没有测试环境和经验，Linux不受支持，基本上能跑不能用……**
