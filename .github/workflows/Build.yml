@@ -88,26 +88,6 @@ jobs:
         with:
           name: Build_Windows_x64_Windows7
           path: dist/MinecraftSkinDownloader_Windows7_x64.exe
-  Build_Windows_x64_Win7_Pypy:
-    runs-on: windows-2022
-    name: Build on Windows x64 for Windows 7 using Pypy
-    steps:
-      - name: Check out
-        uses: actions/checkout@v2
-      - name: Build Python Executable File
-        uses: NewbieXvwu/pyinstaller-build@patch-icon-import
-        with:
-          main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader_Windows7_x64
-          use-dependencies: false
-          python_version: pypy-3.8
-          no-console: true
-          icon: logo
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Build_Windows_x64_Windows7
-          path: dist/MinecraftSkinDownloader_Windows7_x64.exe
   Build_Windows_x86_win7:
     runs-on: windows-2022
     name: Build on Windows x86 for Windows 7
