@@ -6,7 +6,7 @@ Author:NewbieXvwu
 '''
 version_int=2.2#程序主版本号
 ispreview=True#程序是否是预览版
-previewversion="4"#预览版本号（不自动更新）
+previewversion="5"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
     version="v"+str(version_int)+" Preview "+previewversion
 else:
@@ -27,39 +27,203 @@ import platform
 import ctypes
 import time
 import winreg
+global ThreadShouldStop
+ThreadShouldStop=False
+def on_closing():
+    tkinter.messagebox.showerror("错误","正在安装必要的运行库！\n强制退出会造成运行库损坏！")
 #尝试安装并导入第三方库
 try:
     import requests
-except:
-    #没有安装requests
-    print("没有程序必要的运行库，正在安装……")
+except:#没有安装requests
+    from tkinter import *
+    import tkinter
+    from tkinter.ttk import *
+    def sc_main_():
+        sc_=Tk()
+        #窗口居中
+        scw=sc_.winfo_screenwidth()
+        sch=sc_.winfo_screenheight()
+        w=300
+        h=200
+        x=(scw-w)/2
+        y=(sch-h)/2
+        sc_.title("正在安装运行库")
+        sc_.geometry("%dx%d+%d+%d"%(w,h,x,y))
+        sc_.maxsize(w,h)
+        sc_.minsize(w,h)
+        try:#从双源尝试下载Logo
+            sc_.iconbitmap('logo.ico')
+        except:
+            try:
+                urlretrieve("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
+                sc_.iconbitmap('logo.ico')
+            except:
+                urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
+                sc_.iconbitmap('logo.ico')
+        try:
+            ctypes.windll.shcore.SetProcessDpiAwareness(1)#高DPI适配
+            ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
+            sc_.tk.call('tk', 'scaling', ScaleFactor/75)
+        except:
+            pass
+        def showmain():
+            while True:
+                for i in range(100):
+                    try:
+                        # 每次更新加1
+                        pb_['value'] = i + 1
+                        # 更新画面
+                        sc_.update()
+                        time.sleep(0.05)
+                    except:
+                        exit()
+                for i in range(100):
+                    try:
+                        # 每次更新减1
+                        pb_['value'] = 100 - i
+                        # 更新画面
+                        sc_.update()
+                        time.sleep(0.05)
+                    except:
+                        exit()
+        def ThreadStop():
+            while True:
+                try:
+                    if ThreadShouldStop:
+                        #sc_.destroy()
+                        os.system("taskkill -f -im python.exe")
+                        os.system("taskkill -f -im pythonw.exe")
+                        os.system("taskkill -f -im py.exe")
+                        os.system("taskkill -f -im pyw.exe")
+                except:
+                    pass
+                time.sleep(0.1)
+        run___=threading.Thread(target=ThreadStop)
+        run___.daemon=True
+        run___.start()
+        def show():#多线程运行主函数，防止主线程GUI卡死
+            run__=threading.Thread(target=showmain)
+            run__.start()
+        lb1_=Label(sc_,text="正在安装程序必要的运行库……",font=("宋体",13))
+        lb1_.place(x=30,y=30)
+        lb2_=Label(sc_,text="  正在安装：requests\n\n安装完毕后请手动重启程序",font=("宋体",10))
+        lb2_.place(x=150,y=90,anchor="center")
+        pb_=Progressbar(sc_,length=240,mode='indeterminate',orient=tkinter.HORIZONTAL)
+        pb_.place(x=30,y=130)
+        show()
+        sc_.protocol('WM_DELETE_WINDOW', on_closing)
+        sc_.mainloop()
+    run___=threading.Thread(target=sc_main_)
+    run___.start()
     result=os.popen("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests").read()
     if "Successfully installed" in result:#安装requests成功
-        print("安装进度：50%")
         import requests
         from requests import delete
+        ThreadShouldStop=True
     else:#安装requests失败
-        print("运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\npip日志：\n",result,sep="")
+        if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
+        exit()
     try:
         import ttkthemes
     except:#没有安装ttkthemes
         result=os.popen("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkthemes").read()
         if "Successfully installed" in result:#安装ttkthemes成功
-            print("安装运行库成功！")
             import ttkthemes
+            ThreadShouldStop=True
         else:#安装ttkthemes失败
-            print("运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\npip日志：\n",result,sep="")
+            if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
+            exit()
 else:#安装了requests
     try:
         import ttkthemes
     except:#没有安装ttkthemes
-        print("没有程序必要的运行库，正在安装……")
+        from tkinter import *
+        import tkinter
+        from tkinter.ttk import *
+        def sc_main_():
+            sc_=Tk()
+            #窗口居中
+            scw=sc_.winfo_screenwidth()
+            sch=sc_.winfo_screenheight()
+            w=300
+            h=200
+            x=(scw-w)/2
+            y=(sch-h)/2
+            sc_.title("正在安装运行库")
+            sc_.geometry("%dx%d+%d+%d"%(w,h,x,y))
+            sc_.maxsize(w,h)
+            sc_.minsize(w,h)
+            try:#从双源尝试下载Logo
+                sc_.iconbitmap('logo.ico')
+            except:
+                try:
+                    urlretrieve("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
+                    sc_.iconbitmap('logo.ico')
+                except:
+                    urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
+                    sc_.iconbitmap('logo.ico')
+            try:
+                ctypes.windll.shcore.SetProcessDpiAwareness(1)#高DPI适配
+                ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
+                sc_.tk.call('tk', 'scaling', ScaleFactor/75)
+            except:
+                pass
+            def showmain():
+                while True:
+                    for i in range(100):
+                        try:
+                            # 每次更新加1
+                            pb_['value'] = i + 1
+                            # 更新画面
+                            sc_.update()
+                            time.sleep(0.05)
+                        except:
+                            exit()
+                    for i in range(100):
+                        try:
+                            # 每次更新减1
+                            pb_['value'] = 100 - i
+                            # 更新画面
+                            sc_.update()
+                            time.sleep(0.05)
+                        except:
+                            exit()
+            def ThreadStop():
+                while True:
+                    try:
+                        if ThreadShouldStop:
+                            #sc_.destroy()
+                            os.system("taskkill -f -im python.exe")
+                            os.system("taskkill -f -im pythonw.exe")
+                            os.system("taskkill -f -im py.exe")
+                            os.system("taskkill -f -im pyw.exe")
+                    except:
+                        pass
+                    time.sleep(0.1)
+            run___=threading.Thread(target=ThreadStop)
+            run___.start()
+            def show():#多线程运行主函数，防止主线程GUI卡死
+                run__=threading.Thread(target=showmain)
+                run__.start()
+            lb1_=Label(sc_,text="正在安装程序必要的运行库……",font=("宋体",13))
+            lb1_.place(x=30,y=30)
+            lb2_=Label(sc_,text="  正在安装：ttkthemes\n\n安装完毕后请手动重启程序",font=("宋体",10))
+            lb2_.place(x=150,y=90,anchor="center")
+            pb_=Progressbar(sc_,length=240,mode='indeterminate',orient=tkinter.HORIZONTAL)
+            pb_.place(x=30,y=130)
+            show()
+            sc_.protocol('WM_DELETE_WINDOW', on_closing)
+            sc_.mainloop()
+        run___=threading.Thread(target=sc_main_)
+        run___.daemon=True
+        run___.start()
         result=os.popen("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkthemes").read()
         if "Successfully installed" in result:#安装ttkthemes成功
-            print("安装运行库成功！")
             import ttkthemes
+            ThreadShouldStop=True
         else:#安装ttkthemes失败
-            print("运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\npip日志：\n",result,sep="")
+            if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
+            exit()
 #定义函数
 def getzbmain():#主函数
     id_=e.get()
