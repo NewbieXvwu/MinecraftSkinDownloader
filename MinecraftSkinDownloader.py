@@ -507,7 +507,7 @@ btn2.place(x=400,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
 if float(str(platform.version().split(".")[0])+"."+str(platform.version().split(".")[1]))>6.3 and int(platform.python_version().split(".")[1])<=8:
-    if not tkinter.messagebox.askyesno(title="您正在使用过旧的Python", message="您的操作系统为Windows "+str(platform.version().split(".")[0])+"，\n但本程序正运行在版本为"+platform.python_version()+"的Python上。\n这可能是因为您下载了本程序的Windows 7兼容版。\n使用兼容版将会导致程序的稳定性无法得到保证，因为本程序的开发使用了更新的Python版本。\n您是否要下载一个稳定性更好的版本？"):
+    if tkinter.messagebox.askyesno(title="您正在使用过旧的Python", message="您的操作系统为Windows "+str(platform.version().split(".")[0])+"，\n但本程序正运行在版本为"+platform.python_version()+"的Python上。\n这可能是因为您下载了本程序的Windows 7兼容版。\n使用兼容版将会导致程序的稳定性无法得到保证，因为本程序的开发使用了更新的Python版本。\n您是否要下载一个稳定性更好的版本？"):
         os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
         exit()
 if ispreview:#预览版警告
