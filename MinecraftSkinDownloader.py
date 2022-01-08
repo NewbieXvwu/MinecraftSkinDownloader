@@ -6,7 +6,7 @@ Author:NewbieXvwu
 '''
 version_int=2.2#程序主版本号
 ispreview=True#程序是否是预览版
-previewversion="5"#预览版本号（不自动更新）
+previewversion="6"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
     version="v"+str(version_int)+" Preview "+previewversion
 else:
@@ -506,6 +506,10 @@ btn2=Button(sc,text="关于",command=info)
 btn2.place(x=400,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
+if float(str(platform.version().split(".")[0])+"."+str(platform.version().split(".")[1]))>6.3 and int(platform.python_version().split(".")[1])<=8:
+    if not tkinter.messagebox.askyesno(title="您正在使用过旧的Python", message="您的操作系统为Windows "+str(platform.version().split(".")[0])+"，\n但本程序正运行在版本为"+platform.python_version()+"的Python上。\n这可能是因为您下载了本程序的Windows 7兼容版。\n使用兼容版将会导致程序的稳定性无法得到保证，因为本程序的开发使用了更新的Python版本。\n您是否要下载一个稳定性更好的版本？"):
+        os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
+        exit()
 if ispreview:#预览版警告
     if not tkinter.messagebox.askyesno(title="您正在使用预览版", message="您正在使用的版本为"+version+"，这是一个预览版。\n使用预览版可能会带来一些不可预知的问题！\n您是否要继续？"):
         os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
