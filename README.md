@@ -62,3 +62,15 @@
 	build.bat
 
 **注意：目前由于我没有测试环境和经验，Linux不受支持，基本上能跑不能用……**
+
+# 从源码运行
+
+如果您有特殊需求（例如本程序的Windows 7兼容版本不起作用），您可以从源码运行本程序。
+
+在运行之前，确保您已经安装了<a href="https://www.python.org"><img src="https://img.shields.io/badge/-Python 3.x-blue?style=flat&logo=python&logoColor=white&link=https://www.python.org"></a>。
+
+程序将会自动下载并安装第三方库。
+
+从[V2.2 Preview 5](https://github.com/NewbieXvwu/MinecraftSkinDownloader/commit/2d2c9a8d7ba3ec4b5c7dac66edb97f7a0605c456)开始，下载第三方库的界面升级到了图形化版本。但是，这会导致您在安装完成每一个第三方库后必须手动重启本程序。
+
+如果你有好的解决该问题的方案，欢迎给我提交[Pull requests](https://github.com/NewbieXvwu/MinecraftSkinDownloader/pulls)。
