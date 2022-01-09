@@ -1,7 +1,7 @@
 name: 漏洞反馈
 description: 反馈问题，帮助我们改进
 title: "[漏洞] "
-labels: ["bug"]
+labels: ["漏洞"]
 
 body:
   - type: input

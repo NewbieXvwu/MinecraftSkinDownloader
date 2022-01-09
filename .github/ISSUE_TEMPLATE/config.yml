@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 我的Bilibili个人主页
+    url: https://space.bilibili.com/505201154
+    about: 你可以在这里私信问我问题。
+  - name: 此项目的Gitee仓库
+    url: https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
+    about: 如果你难以访问Github，你可以试试我的Gitee仓库。（有1~2分钟的同步延迟）

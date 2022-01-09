@@ -1,7 +1,7 @@
 name: 功能请求
 description: 想要新功能
 title: "[功能请求]"
-labels: ["enhancement"]
+labels: ["改进"]
 
 body:
   - type: textarea
