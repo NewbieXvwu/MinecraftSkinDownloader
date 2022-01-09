@@ -1,5 +1,4 @@
 name: Build
-
 on:
   push:
     branches: [ main ]
@@ -13,15 +12,15 @@ jobs:
     - name: Check out
       uses: actions/checkout@v2
     - name: Build Python Executable File
-      uses: NewbieXvwu/pyinstaller-build@patch-icon-import
+      uses: NewbieXvwu/pyinstaller-build@patch-icon-import-Linux
       with:
         main: MinecraftSkinDownloader
         artifact: MinecraftSkinDownloader_Linux
         use-dependencies: false
         python_version: 3.10.1
+        pyinstaller_version: 4.7
         no-console: true
         icon: logo
-        linux: true
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
@@ -40,6 +39,7 @@ jobs:
           artifact: MinecraftSkinDownloader_Windows_x64
           use-dependencies: false
           python_version: 3.10.1
+          pyinstaller_version: 4.7
           no-console: true
           icon: logo
       - name: Upload Artifact
@@ -60,6 +60,7 @@ jobs:
           artifact: MinecraftSkinDownloader_Windows_x86
           use-dependencies: false
           python_version: 3.10.1
+          pyinstaller_version: 4.7
           no-console: true
           icon: logo
       - name: Upload Artifact
@@ -80,6 +81,7 @@ jobs:
           artifact: MinecraftSkinDownloader_Windows7_x64
           use-dependencies: false
           python_version: 3.8.10
+          pyinstaller_version: 4.7
           no-console: true
           icon: logo
       - name: Upload Artifact
@@ -100,6 +102,7 @@ jobs:
           artifact: MinecraftSkinDownloader_Windows7_x86
           use-dependencies: false
           python_version: 3.8.10
+          pyinstaller_version: 4.7
           no-console: true
           icon: logo
       - name: Upload Artifact
