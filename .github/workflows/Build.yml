@@ -1,10 +1,12 @@
 name: Build
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  push
+  pull_request
+  delete
+  label:
+    types: [created, deleted]
+  create
 
 jobs:
   Build_Linux:
