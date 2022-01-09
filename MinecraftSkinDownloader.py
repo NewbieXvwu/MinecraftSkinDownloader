@@ -1,8 +1,9 @@
 '''
-MinecraftSkinDownloader
-Github:https://github.com/NewbieXvwu/MinecraftSkinDownloader
-Gitee:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
-Author:NewbieXvwu
+作品名：MinecraftSkinDownloader
+Github仓库地址:https://github.com/NewbieXvwu/MinecraftSkinDownloader
+Gitee仓库地址:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
+关于本程序：这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
+作者：NewbieXvwu
 '''
 version_int=2.2#程序主版本号
 ispreview=True#程序是否是预览版
