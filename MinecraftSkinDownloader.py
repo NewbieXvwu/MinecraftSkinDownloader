@@ -7,7 +7,7 @@ Gitee仓库地址:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
 '''
 version_int=2.2#程序主版本号
 ispreview=True#程序是否是预览版
-previewversion="6"#预览版本号（不自动更新）
+previewversion="7"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
     version="v"+str(version_int)+" Preview "+previewversion
 else:
@@ -242,7 +242,10 @@ def getzbmain():#主函数
         zt.set("状态：读取UUID中……")
         r=r.text
         r=json.loads(r)
-        uuid=r['id']
+        try:
+            uuid=r['id']
+        except:
+            zt.set("状态：Bugjump出现错误，请检查你的输入！")
         del r
         zt.set("状态：向Mojang请求下载皮肤的地址中……")
         url2="https://sessionserver.mojang.com/session/minecraft/profile/"+uuid
