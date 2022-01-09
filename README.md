@@ -37,6 +37,23 @@
 
 <div align=center><img src="https://user-images.githubusercontent.com/87637612/147869119-6cd07534-0279-44f8-a945-1be505799da4.png"/></div>
 
+# 操作系统支持
+
+目前本程序支持以下操作系统：
+- Windows 11
+- Windows 10
+- Windows 8.1**（未经测试）**
+- Windows 7**（需要特别兼容版本）**
+- Windows Vista**（需要特别兼容版本）**
+
+目前本程序仍不兼容但以后可能兼容以下操作系统：
+- Linux（目前可能可以启动程序，但几乎不能正常使用，**未经测试**）
+- MacOS（构建失败，我没有这方面的经验）
+
+本程序永远不可能兼容以下系统：
+- Windows 8**（未经测试）**
+- Windows XP 或更早版本
+
 # 构建
 
 <s>如果您想要在Windows 7上运行本程序，目前的解决方案是安装<a href="https://www.python.org/downloads/release/python-3810"><img src="https://img.shields.io/badge/-Python 3.8.10-black?style=flat&logo=python&logoColor=white&link=https://www.python.org/downloads/release/python-3810"></a>并进行构建。</s>
