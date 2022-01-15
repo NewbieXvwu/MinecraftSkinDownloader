@@ -29,3 +29,15 @@ sentimentBotToxicityThreshold: .10
 # *Required* Comment to reply with
 sentimentBotReplyComment: >
   请务必遵守行为准则，并尊重其他用户！
+
+# Configuration for update-docs - https://github.com/behaviorbot/update-docs
+
+# Comment to be posted to on PRs that don't update documentation
+updateDocsComment: >
+  感谢您提出此拉取请求！如果您能根据您的更改更新我们的一些文档，我们将不胜感激。
+updateDocsWhiteList:
+  - 漏洞
+
+updateDocsTargetFiles:
+  - README
+  - docs/
