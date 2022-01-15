@@ -1,0 +1,21 @@
+- label: "更改程度"
+  message: "较大"
+  color: "red"
+  when: "$additions > 100"
+
+- label: "更改程度"
+  message: "中等"
+  color: "yellow"
+  when: "$additions > 50 && $additions < 100"
+  
+- label: "更改程度"
+  message: "较小"
+  color: "green"
+  when: "$additions < 50"
+
+- imageUrl: "https://api.qrserver.com/v1/create-qr-code/?size=50x50&data=https://github.com/NewbieXvwu/MinecraftSkinDownloader/pull/$prNumber"
+  url: "https://github.com/NewbieXvwu/MinecraftSkinDownloader/pull/$prNumber"
+
+- label: "描述长度"
+  message: "$payload.pull_request.body.length"
+  color: "green"
