@@ -19,3 +19,13 @@ firstPRMergeComment: >
   祝贺您的第一个拉取请求通过了！我们为您感到骄傲！ 
 
 # It is recommend to include as many gifs and emojis as possible
+
+# Configuration for sentiment-bot - https://github.com/behaviorbot/sentiment-bot
+
+# *Required* toxicity threshold between 0 and .99 with the higher numbers being the most toxic
+# Anything higher than this threshold will be marked as toxic and commented on
+sentimentBotToxicityThreshold: .10
+
+# *Required* Comment to reply with
+sentimentBotReplyComment: >
+  请务必遵守行为准则，并尊重其他用户！
