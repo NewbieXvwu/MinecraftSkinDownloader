@@ -1,4 +1,4 @@
-theme: jekyll-theme-cayman
+theme: sighingnow/jekyll-gitbook
 title: MinecraftSkinDownloader
 description: 这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
 markdown: GFM
