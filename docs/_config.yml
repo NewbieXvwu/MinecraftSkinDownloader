@@ -1,4 +1,4 @@
-remote_theme: sighingnow/jekyll-gitbook
+remote_theme: raviriley/agency-jekyll-theme
 title: MinecraftSkinDownloader
 description: 这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
 markdown: GFM
@@ -6,30 +6,3 @@ language: zh-CN
 email: NewbieXvwu@qq.com
 author: NewbieXvwu
 description: 这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
-plugins:
-  - jekyll-feed
-  - jemoji
-toc:
-  enabled: true
-markdown: kramdown
-kramdown:
-  auto_ids: true
-  input: GFM
-  math_engine: mathjax
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  toc_levels: 1..6
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    guess_lang: true
-syntax_highlighter_style: colorful
-markdown_ext: markdown,mkdown,mkdn,mkd,md
-permalink: /:categories/:year-:month-:day-:title:output_ext
-exclude:
-  - _drafts
-destination: ./_site
-incremental: false
-regenerate: true
-version: 1.0
-gitbook_version: 3.2.3
-baseurl: '/jekyll-gitbook'
-rss: RSS
