@@ -6,3 +6,8 @@ language: zh-CN
 email: NewbieXvwu@qq.com
 author: NewbieXvwu
 description: 这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
+plugins:
+  - jekyll-feed
+  - jemoji
+toc:
+  enabled: true
