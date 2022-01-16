@@ -19,7 +19,7 @@ jobs:
           artifact: MinecraftSkinDownloader_Windows_x64
           use-dependencies: false
           python_version: 3.10.1
-          pyinstaller_version: 4.7
+          pyinstaller_version: 4.8
           no-console: true
           icon: logo
       - name: Upload release assets to GitHub
@@ -40,7 +40,7 @@ jobs:
           artifact: MinecraftSkinDownloader_Windows_x86
           use-dependencies: false
           python_version: 3.10.1
-          pyinstaller_version: 4.7
+          pyinstaller_version: 4.8
           no-console: true
           icon: logo
       - name: Upload release assets to GitHub
@@ -61,7 +61,7 @@ jobs:
           artifact: MinecraftSkinDownloader_Windows7_x64
           use-dependencies: false
           python_version: 3.8.10
-          pyinstaller_version: 4.7
+          pyinstaller_version: 4.8
           no-console: true
           icon: logo
       - name: Upload release assets to GitHub
@@ -82,7 +82,7 @@ jobs:
           artifact: MinecraftSkinDownloader_Windows7_x86
           use-dependencies: false
           python_version: 3.8.10
-          pyinstaller_version: 4.7
+          pyinstaller_version: 4.8
           no-console: true
           icon: logo
       - name: Upload release assets to GitHub
