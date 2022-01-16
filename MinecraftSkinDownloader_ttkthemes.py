@@ -5,7 +5,7 @@ Gitee仓库地址:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
 关于本程序：这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
 作者：NewbieXvwu
 '''
-version_int=2.3#程序主版本号
+version_int=2.4#程序主版本号
 ispreview=False#程序是否是预览版
 previewversion="0"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
@@ -122,7 +122,7 @@ except:#没有安装requests
         from requests import delete
         ThreadShouldStop=True
     else:#安装requests失败
-        if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
+        if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
         exit()
     try:
         import ttkthemes
@@ -132,7 +132,7 @@ except:#没有安装requests
             import ttkthemes
             ThreadShouldStop=True
         else:#安装ttkthemes失败
-            if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
+            if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
             exit()
 else:#安装了requests
     try:
@@ -223,7 +223,7 @@ else:#安装了requests
             import ttkthemes
             ThreadShouldStop=True
         else:#安装ttkthemes失败
-            if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
+            if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
             exit()
 #定义函数
 def getzbmain():#主函数
@@ -377,18 +377,18 @@ def getzbmain():#主函数
                     os.system(start)
                 del exit_
         else:
-            start="start \"\" "+"\""+id_+'.png'+"\""
-            os.system(start)
+            start="id_"+'.png'
+            os.startfile(start)
 def getzb(ev=None):#多线程运行主函数，防止主线程GUI卡死
     run_=threading.Thread(target=getzbmain)
     run_.start()
 def info():#关于页面
     def opengithub():
-        os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader")
+        os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader")
     def opengitee():
-        os.system("start https://gitee.com/NewbieXvwu/MinecraftSkinDownloader")
+        os.startfile("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader")
     def openbilibili():
-        os.system("start https://space.bilibili.com/505201154")
+        os.startfile("https://space.bilibili.com/505201154")
     about=Toplevel()
     about.title("关于本程序")
     aboutscw=about.winfo_screenwidth()
@@ -427,7 +427,7 @@ def TryUpdate(update_url):#尝试更新
                 with open("Update.bat", 'w') as file_object:
                     file_object.write("@echo off\ntaskkill -f -im python.exe\ntaskkill -f -im pythonw.exe\ntaskkill -f -im "+fn+"\ndel /s /q /f "+fn+"\nren New_MinecraftSkinDownloader.exe "+fn+"\nstart "+fn)
                 urlretrieve(browser_download_url,"New_MinecraftSkinDownloader.exe")
-                os.system("start Update.bat")
+                os.startfile("Update.bat")
                 exit()
             run_1=threading.Thread(target=autoupdate)
             run_1.start()
@@ -512,11 +512,11 @@ lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
 if float(str(platform.version().split(".")[0])+"."+str(platform.version().split(".")[1]))>6.3 and int(platform.python_version().split(".")[1])<=8:
     if tkinter.messagebox.askyesno(title="您正在使用过旧的Python", message="您的操作系统为Windows "+str(platform.version().split(".")[0])+"，\n但本程序正运行在版本为"+platform.python_version()+"的Python上。\n这可能是因为您下载了本程序的Windows 7兼容版。\n使用兼容版将会导致程序的稳定性无法得到保证，因为本程序的开发使用了更新的Python版本。\n您是否要下载一个稳定性更好的版本？"):
-        os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
+        os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
         exit()
 if ispreview:#预览版警告
     if not tkinter.messagebox.askyesno(title="您正在使用预览版", message="您正在使用的版本为"+version+"，这是一个预览版。\n使用预览版可能会带来一些不可预知的问题！\n您是否要继续？"):
-        os.system("start https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
+        os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
         exit()
 try:
     TryUpdate("https://gitee.com/api/v5/repos/NewbieXvwu/MinecraftSkinDownloader/releases/latest")
