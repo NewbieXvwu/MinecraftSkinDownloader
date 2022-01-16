@@ -1,0 +1,25 @@
+site_name: MinecraftSkinDownloader
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.top
+  logo: logo.png
+  language: zh
+repo_url: https://github.com/NewbieXvwu/MinecraftSkinDownloader
+edit_uri: edit/main/docs/
+plugins:
+  - git-revision-date
+  - git-revision-date-localized
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - tables
