@@ -24,7 +24,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: Build_Linux
+        name: Build_Linux_ttkthemes
         path: dist/MinecraftSkinDownloader_ttkthemes_Linux
   Build_Windows_x64_ttkthemes:
     runs-on: windows-2022
@@ -45,7 +45,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build_Windows_x64
+          name: Build_Windows_x64_ttkthemes
           path: dist/MinecraftSkinDownloader_ttkthemes_Windows_x64.exe
   Build_Windows_x86_ttkthemes:
     runs-on: windows-2022
@@ -66,7 +66,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build_Windows_x86
+          name: Build_Windows_x86_ttkthemes
           path: dist/MinecraftSkinDownloader_ttkthemes_Windows_x86.exe
   Build_Windows_x64_Win7_ttkthemes:
     runs-on: windows-2022
@@ -87,7 +87,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build_Windows_x64_Windows7
+          name: Build_Windows_x64_Windows7_ttkthemes
           path: dist/MinecraftSkinDownloader_ttkthemes_Windows7_x64.exe
   Build_Windows_x86_win7_ttkthemes:
     runs-on: windows-2022
@@ -108,7 +108,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build_Windows_x86_Windows7
+          name: Build_Windows_x86_Windows7_ttkthemes
           path: dist/MinecraftSkinDownloader_ttkthemes_Windows7_x86.exe
   Build_Linux_ttkbootstrap:
     runs-on: ubuntu-latest
@@ -129,7 +129,7 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: Build_Linux
+        name: Build_Linux_ttkbootstrap
         path: dist/MinecraftSkinDownloader_ttkbootstrap_Linux
   Build_Windows_x64_ttkbootstrap:
     runs-on: windows-2022
@@ -150,7 +150,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build_Windows_x64
+          name: Build_Windows_x64_ttkbootstrap
           path: dist/MinecraftSkinDownloader_ttkbootstrap_Windows_x64.exe
   Build_Windows_x86_ttkbootstrap:
     runs-on: windows-2022
@@ -171,7 +171,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build_Windows_x86
+          name: Build_Windows_x86_ttkbootstrap
           path: dist/MinecraftSkinDownloader_ttkbootstrap_Windows_x86.exe
   Build_Windows_x64_Win7_ttkbootstrap:
     runs-on: windows-2022
@@ -192,7 +192,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build_Windows_x64_Windows7
+          name: Build_Windows_x64_Windows7_ttkbootstrap
           path: dist/MinecraftSkinDownloader_ttkbootstrap_Windows7_x64.exe
   Build_Windows_x86_win7_ttkbootstrap:
     runs-on: windows-2022
@@ -213,7 +213,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build_Windows_x86_Windows7
+          name: Build_Windows_x86_Windows7_ttkbootstrap
           path: dist/MinecraftSkinDownloader_ttkbootstrap_Windows7_x86.exe
   Mirror-To-Gitee:
     runs-on: ubuntu-latest
