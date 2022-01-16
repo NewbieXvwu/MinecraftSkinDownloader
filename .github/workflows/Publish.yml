@@ -8,7 +8,7 @@ on:
 jobs:
   Build_Windows_x64:
     runs-on: windows-2022
-    name: Build on Windows x64
+    name: Release Windows x64
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -22,14 +22,14 @@ jobs:
           pyinstaller_version: 4.7
           no-console: true
           icon: logo
-      - name: Upload assets to GitHub
+      - name: Upload release assets to GitHub
         uses: AButler/upload-release-assets@v2.0
         with:
           files: 'dist/MinecraftSkinDownloader_Windows_x64.exe'
           repo-token: ${{ secrets.RELEASE_TOKEN }}
   Build_Windows_x86:
     runs-on: windows-2022
-    name: Build on Windows x86
+    name: Release Windows x86
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -43,14 +43,14 @@ jobs:
           pyinstaller_version: 4.7
           no-console: true
           icon: logo
-      - name: Upload assets to GitHub
+      - name: Upload release assets to GitHub
         uses: AButler/upload-release-assets@v2.0
         with:
           files: 'dist/MinecraftSkinDownloader_Windows_x86.exe'
           repo-token: ${{ secrets.RELEASE_TOKEN }}
   Build_Windows_x64_Win7:
     runs-on: windows-2022
-    name: Build on Windows x64 for Windows 7
+    name: Release Windows x64 for Windows 7
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -64,14 +64,14 @@ jobs:
           pyinstaller_version: 4.7
           no-console: true
           icon: logo
-      - name: Upload assets to GitHub
+      - name: Upload release assets to GitHub
         uses: AButler/upload-release-assets@v2.0
         with:
           files: 'dist/MinecraftSkinDownloader_Windows7_x64.exe'
           repo-token: ${{ secrets.RELEASE_TOKEN }}
   Build_Windows_x86_win7:
     runs-on: windows-2022
-    name: Build on Windows x86 for Windows 7
+    name: Release Windows x86 for Windows 7
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -85,7 +85,7 @@ jobs:
           pyinstaller_version: 4.7
           no-console: true
           icon: logo
-      - name: Upload assets to GitHub
+      - name: Upload release assets to GitHub
         uses: AButler/upload-release-assets@v2.0
         with:
           files: 'dist/MinecraftSkinDownloader_Windows7_x86.exe'
