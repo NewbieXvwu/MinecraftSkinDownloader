@@ -36,7 +36,7 @@ jobs:
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import
         with:
           main: MinecraftSkinDownloader_ttkthemes
-          artifact: MinecraftSkinDownloader_ttkthemes_Windows_x64
+          artifact: MinecraftSkinDownloader_ttkthemes_x64
           use-dependencies: false
           python_version: 3.10.1
           pyinstaller_version: 4.8
@@ -46,7 +46,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build_Windows_x64_ttkthemes
-          path: dist/MinecraftSkinDownloader_ttkthemes_Windows_x64.exe
+          path: dist/MinecraftSkinDownloader_ttkthemes_x64.exe
   Build_Windows_x86_ttkthemes:
     runs-on: windows-2022
     name: Build on Windows x86 using ttkthemes
@@ -57,7 +57,7 @@ jobs:
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86
         with:
           main: MinecraftSkinDownloader_ttkthemes
-          artifact: MinecraftSkinDownloader_ttkthemes_Windows_x86
+          artifact: MinecraftSkinDownloader_ttkthemes_x86
           use-dependencies: false
           python_version: 3.10.1
           pyinstaller_version: 4.8
@@ -67,7 +67,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build_Windows_x86_ttkthemes
-          path: dist/MinecraftSkinDownloader_ttkthemes_Windows_x86.exe
+          path: dist/MinecraftSkinDownloader_ttkthemes_x86.exe
   Build_Windows_x64_Win7_ttkthemes:
     runs-on: windows-2022
     name: Build on Windows x64 for Windows 7 using ttkthemes
@@ -141,7 +141,7 @@ jobs:
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import-ttkbootstrap
         with:
           main: MinecraftSkinDownloader_ttkbootstrap
-          artifact: MinecraftSkinDownloader_ttkbootstrap_Windows_x64
+          artifact: MinecraftSkinDownloader_ttkbootstrap_x64
           use-dependencies: false
           python_version: 3.10.1
           pyinstaller_version: 4.8
@@ -151,7 +151,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build_Windows_x64_ttkbootstrap
-          path: dist/MinecraftSkinDownloader_ttkbootstrap_Windows_x64.exe
+          path: dist/MinecraftSkinDownloader_ttkbootstrap_x64.exe
   Build_Windows_x86_ttkbootstrap:
     runs-on: windows-2022
     name: Build on Windows x86 using ttkbootstrap
@@ -162,7 +162,7 @@ jobs:
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86-ttkbootstrap
         with:
           main: MinecraftSkinDownloader_ttkbootstrap
-          artifact: MinecraftSkinDownloader_ttkbootstrap_Windows_x86
+          artifact: MinecraftSkinDownloader_ttkbootstrap_x86
           use-dependencies: false
           python_version: 3.10.1
           pyinstaller_version: 4.8
@@ -172,7 +172,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Build_Windows_x86_ttkbootstrap
-          path: dist/MinecraftSkinDownloader_ttkbootstrap_Windows_x86.exe
+          path: dist/MinecraftSkinDownloader_ttkbootstrap_x86.exe
   Build_Windows_x64_Win7_ttkbootstrap:
     runs-on: windows-2022
     name: Build on Windows x64 for Windows 7 using ttkbootstrap
