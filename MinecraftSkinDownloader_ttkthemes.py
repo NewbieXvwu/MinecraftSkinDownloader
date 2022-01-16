@@ -377,7 +377,7 @@ def getzbmain():#主函数
                     os.system(start)
                 del exit_
         else:
-            start="id_"+'.png'
+            start=id_+'.png'
             os.startfile(start)
 def getzb(ev=None):#多线程运行主函数，防止主线程GUI卡死
     run_=threading.Thread(target=getzbmain)
