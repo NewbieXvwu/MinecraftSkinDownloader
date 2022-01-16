@@ -6,17 +6,17 @@ on:
        - published
 
 jobs:
-  Build_Windows_x64:
+  Build_Windows_x64_ttkthemes:
     runs-on: windows-2022
-    name: Release Windows x64
+    name: Build on Windows x64 using ttkthemes
     steps:
       - name: Check out
         uses: actions/checkout@v2
       - name: Build Python Executable File
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import
         with:
-          main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader_Windows_x64
+          main: MinecraftSkinDownloader_ttkthemes
+          artifact: MinecraftSkinDownloader_ttkthemes_Windows_x64
           use-dependencies: false
           python_version: 3.10.1
           pyinstaller_version: 4.8
@@ -25,19 +25,19 @@ jobs:
       - name: Upload release assets to GitHub
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'dist/MinecraftSkinDownloader_Windows_x64.exe'
+          files: 'dist/MinecraftSkinDownloader_ttkthemes_Windows_x64.exe'
           repo-token: ${{ secrets.RELEASE_TOKEN }}
-  Build_Windows_x86:
+  Build_Windows_x86_ttkthemes:
     runs-on: windows-2022
-    name: Release Windows x86
+    name: Build on Windows x86 using ttkthemes
     steps:
       - name: Check out
         uses: actions/checkout@v2
       - name: Build Python Executable File
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86
         with:
-          main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader_Windows_x86
+          main: MinecraftSkinDownloader_ttkthemes
+          artifact: MinecraftSkinDownloader_ttkthemes_Windows_x86
           use-dependencies: false
           python_version: 3.10.1
           pyinstaller_version: 4.8
@@ -46,19 +46,19 @@ jobs:
       - name: Upload release assets to GitHub
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'dist/MinecraftSkinDownloader_Windows_x86.exe'
+          files: 'dist/MinecraftSkinDownloader_ttkthemes_Windows_x86.exe'
           repo-token: ${{ secrets.RELEASE_TOKEN }}
-  Build_Windows_x64_Win7:
+  Build_Windows_x64_Win7_ttkthemes:
     runs-on: windows-2022
-    name: Release Windows x64 for Windows 7
+    name: Build on Windows x64 for Windows 7 using ttkthemes
     steps:
       - name: Check out
         uses: actions/checkout@v2
       - name: Build Python Executable File
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import
         with:
-          main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader_Windows7_x64
+          main: MinecraftSkinDownloader_ttkthemes
+          artifact: MinecraftSkinDownloader_ttkthemes_Windows7_x64
           use-dependencies: false
           python_version: 3.8.10
           pyinstaller_version: 4.8
@@ -67,19 +67,19 @@ jobs:
       - name: Upload release assets to GitHub
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'dist/MinecraftSkinDownloader_Windows7_x64.exe'
+          files: 'dist/MinecraftSkinDownloader_ttkthemes_Windows7_x64.exe'
           repo-token: ${{ secrets.RELEASE_TOKEN }}
-  Build_Windows_x86_win7:
+  Build_Windows_x86_win7_ttkthemes:
     runs-on: windows-2022
-    name: Release Windows x86 for Windows 7
+    name: Build on Windows x86 for Windows 7 using ttkthemes
     steps:
       - name: Check out
         uses: actions/checkout@v2
       - name: Build Python Executable File
         uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86
         with:
-          main: MinecraftSkinDownloader
-          artifact: MinecraftSkinDownloader_Windows7_x86
+          main: MinecraftSkinDownloader_ttkthemes
+          artifact: MinecraftSkinDownloader_ttkthemes_Windows7_x86
           use-dependencies: false
           python_version: 3.8.10
           pyinstaller_version: 4.8
@@ -88,7 +88,91 @@ jobs:
       - name: Upload release assets to GitHub
         uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'dist/MinecraftSkinDownloader_Windows7_x86.exe'
+          files: 'dist/MinecraftSkinDownloader_ttkthemes_Windows7_x86.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
+  Build_Windows_x64_ttkbootstrap:
+    runs-on: windows-2022
+    name: Build on Windows x64 using ttkbootstrap
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Python Executable File
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import-ttkbootstrap
+        with:
+          main: MinecraftSkinDownloader_ttkbootstrap
+          artifact: MinecraftSkinDownloader_ttkbootstrap_Windows_x64
+          use-dependencies: false
+          python_version: 3.10.1
+          pyinstaller_version: 4.8
+          no-console: true
+          icon: logo
+      - name: Upload release assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_ttkbootstrap_Windows_x64.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
+  Build_Windows_x86_ttkbootstrap:
+    runs-on: windows-2022
+    name: Build on Windows x86 using ttkbootstrap
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Python Executable File
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86-ttkbootstrap
+        with:
+          main: MinecraftSkinDownloader_ttkbootstrap
+          artifact: MinecraftSkinDownloader_ttkbootstrap_Windows_x86
+          use-dependencies: false
+          python_version: 3.10.1
+          pyinstaller_version: 4.8
+          no-console: true
+          icon: logo
+      - name: Upload release assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_ttkbootstrap_Windows_x86.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
+  Build_Windows_x64_Win7_ttkbootstrap:
+    runs-on: windows-2022
+    name: Build on Windows x64 for Windows 7 using ttkbootstrap
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Python Executable File
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import-ttkbootstrap
+        with:
+          main: MinecraftSkinDownloader_ttkbootstrap
+          artifact: MinecraftSkinDownloader_ttkbootstrap_Windows7_x64
+          use-dependencies: false
+          python_version: 3.8.10
+          pyinstaller_version: 4.8
+          no-console: true
+          icon: logo
+      - name: Upload release assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_ttkbootstrap_Windows7_x64.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
+  Build_Windows_x86_win7_ttkbootstrap:
+    runs-on: windows-2022
+    name: Build on Windows x86 for Windows 7 using ttkbootstrap
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Python Executable File
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86-ttkbootstrap
+        with:
+          main: MinecraftSkinDownloader_ttkbootstrap
+          artifact: MinecraftSkinDownloader_ttkbootstrap_Windows7_x86
+          use-dependencies: false
+          python_version: 3.8.10
+          pyinstaller_version: 4.8
+          no-console: true
+          icon: logo
+      - name: Upload release assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_ttkbootstrap_Windows7_x86.exe'
           repo-token: ${{ secrets.RELEASE_TOKEN }}
   Mirror-To-Gitee:
     runs-on: ubuntu-latest
