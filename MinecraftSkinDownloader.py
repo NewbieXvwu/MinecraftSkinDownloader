@@ -6,8 +6,8 @@ Gitee仓库地址:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
 作者：NewbieXvwu
 '''
 version_int=2.2#程序主版本号
-ispreview=True#程序是否是预览版
-previewversion="7"#预览版本号（不自动更新）
+ispreview=False#程序是否是预览版
+previewversion="0"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
     version="v"+str(version_int)+" Preview "+previewversion
 else:
