@@ -10,8 +10,6 @@ theme:
   language: zh
 repo_url: https://github.com/NewbieXvwu/MinecraftSkinDownloader
 edit_uri: edit/main/docs/
-plugins:
-  - git-revision-date-localized
 markdown_extensions:
   - abbr
   - admonition
