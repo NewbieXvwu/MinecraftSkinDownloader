@@ -1,0 +1,105 @@
+name: Release Artifacts
+
+on:
+  release:
+     types:
+       - published
+
+jobs:
+  Build_Windows_x64:
+    runs-on: windows-2022
+    name: Build on Windows x64
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Python Executable File
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import
+        with:
+          main: MinecraftSkinDownloader
+          artifact: MinecraftSkinDownloader_Windows_x64
+          use-dependencies: false
+          python_version: 3.10.1
+          pyinstaller_version: 4.7
+          no-console: true
+          icon: logo
+      - name: Upload assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_Windows_x64.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
+  Build_Windows_x86:
+    runs-on: windows-2022
+    name: Build on Windows x86
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Python Executable File
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86
+        with:
+          main: MinecraftSkinDownloader
+          artifact: MinecraftSkinDownloader_Windows_x86
+          use-dependencies: false
+          python_version: 3.10.1
+          pyinstaller_version: 4.7
+          no-console: true
+          icon: logo
+      - name: Upload assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_Windows_x86.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
+  Build_Windows_x64_Win7:
+    runs-on: windows-2022
+    name: Build on Windows x64 for Windows 7
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Python Executable File
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import
+        with:
+          main: MinecraftSkinDownloader
+          artifact: MinecraftSkinDownloader_Windows7_x64
+          use-dependencies: false
+          python_version: 3.8.10
+          pyinstaller_version: 4.7
+          no-console: true
+          icon: logo
+      - name: Upload assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_Windows7_x64.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
+  Build_Windows_x86_win7:
+    runs-on: windows-2022
+    name: Build on Windows x86 for Windows 7
+    steps:
+      - name: Check out
+        uses: actions/checkout@v2
+      - name: Build Python Executable File
+        uses: NewbieXvwu/pyinstaller-build@patch-icon-import-x86
+        with:
+          main: MinecraftSkinDownloader
+          artifact: MinecraftSkinDownloader_Windows7_x86
+          use-dependencies: false
+          python_version: 3.8.10
+          pyinstaller_version: 4.7
+          no-console: true
+          icon: logo
+      - name: Upload assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_Windows7_x86.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
+  Mirror-To-Gitee:
+    runs-on: ubuntu-latest
+    name: Sync GitHub to Gitee
+    steps:
+      - name: Mirror the Github repo to Gitee
+        uses: Yikun/hub-mirror-action@master
+        with:
+          src: github/NewbieXvwu
+          dst: gitee/NewbieXvwu
+          dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.GITEE_TOKEN }}
+          force_update: true
+          timeout: 5m
