@@ -1,6 +1,6 @@
 <img width="192" height="192" align="left" style="float: left; margin: 0 10px 0 0;" src="logo.png" alt="logo.png"/><br />
 # MinecraftSkinDownloader 
-<div align="center"><a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/actions"/><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FNewbieXvwu%2FMinecraftSkinDownloader%2Fbadge%3Fref%3Dmain&style=for-the-badge&logo=githubactions&label=%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E7%8A%B6%E6%80%81&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/actions"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues"><img alt="Issues" src="https://img.shields.io/github/issues/NewbieXvwu/MinecraftSkinDownloader?color=0088ff&logo=github&label=%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98&style=for-the-badge" /></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/pulls"><img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/NewbieXvwu/MinecraftSkinDownloader?color=0088ff&logo=githubactions&label=%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E6%8B%89%E5%8F%96%E8%AF%B7%E6%B1%82&style=for-the-badge"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases"><img src="https://img.shields.io/github/downloads/NewbieXvwu/MinecraftSkinDownloader/total?style=for-the-badge&logo=github&label=%E6%80%BB%E4%B8%8B%E8%BD%BD%E9%87%8F&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases"/> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/stargazers"><img src="https://img.shields.io/github/stars/NewbieXvwu/MinecraftSkinDownloader?style=for-the-badge&logo=githubsponsors&label=Stars"/></a> <a href="https://gitee.com/NewbieXvwu/MinecraftSkinDownloader"/><img src="https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/badge/star.svg"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/latest"><img src="https://img.shields.io/github/v/release/NewbieXvwu/MinecraftSkinDownloader?style=for-the-badge&logo=githubactions&label=%E6%9C%80%E6%96%B0%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/latest&labelColor=yellowgreen"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases"><img src="https://img.shields.io/github/v/release/NewbieXvwu/MinecraftSkinDownloader?style=for-the-badge&logo=githubactions&label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases&labelColor=yellowgreen&include_prereleases"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/archive/refs/heads/main.zip"/><img src="https://img.shields.io/github/repo-size/NewbieXvwu/MinecraftSkinDownloader?style=for-the-badge&logo=github&label=%E4%BB%93%E5%BA%93%E5%A4%A7%E5%B0%8F&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/archive/refs/heads/main.zip"/></a></div>
+<div align="center"><a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/actions"/><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FNewbieXvwu%2FMinecraftSkinDownloader%2Fbadge%3Fref%3Dmain&style=for-the-badge&logo=githubactions&label=%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA%E7%8A%B6%E6%80%81&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/actions"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues"><img alt="Issues" src="https://img.shields.io/github/issues/NewbieXvwu/MinecraftSkinDownloader?color=0088ff&logo=github&label=%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98&style=for-the-badge" /></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/pulls"><img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/NewbieXvwu/MinecraftSkinDownloader?color=0088ff&logo=githubactions&label=%E6%9C%AA%E8%A7%A3%E5%86%B3%E7%9A%84%E6%8B%89%E5%8F%96%E8%AF%B7%E6%B1%82&style=for-the-badge"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases"><img src="https://img.shields.io/github/downloads/NewbieXvwu/MinecraftSkinDownloader/total?style=for-the-badge&logo=github&label=%E6%80%BB%E4%B8%8B%E8%BD%BD%E9%87%8F&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/stargazers"><img src="https://img.shields.io/github/stars/NewbieXvwu/MinecraftSkinDownloader?style=for-the-badge&logo=githubsponsors&label=Stars"/></a> <a href="https://gitee.com/NewbieXvwu/MinecraftSkinDownloader"/><img src="https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/badge/star.svg"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/latest"><img src="https://img.shields.io/github/v/release/NewbieXvwu/MinecraftSkinDownloader?style=for-the-badge&logo=githubactions&label=%E6%9C%80%E6%96%B0%E7%A8%B3%E5%AE%9A%E7%89%88%E6%9C%AC&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/latest&labelColor=yellowgreen"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases"><img src="https://img.shields.io/github/v/release/NewbieXvwu/MinecraftSkinDownloader?style=for-the-badge&logo=githubactions&label=%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases&labelColor=yellowgreen&include_prereleases"/></a> <a href="https://github.com/NewbieXvwu/MinecraftSkinDownloader/archive/refs/heads/main.zip"/><img src="https://img.shields.io/github/repo-size/NewbieXvwu/MinecraftSkinDownloader?style=for-the-badge&logo=github&label=%E4%BB%93%E5%BA%93%E5%A4%A7%E5%B0%8F&link=https://github.com/NewbieXvwu/MinecraftSkinDownloader/archive/refs/heads/main.zip"/></a></div>
 
 <div align=center>这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。</div>
 
@@ -46,13 +46,51 @@
 - Windows 7 **（需要特别兼容版本）**
 - Windows Vista **（需要特别兼容版本）**
 
-目前本程序仍不兼容但以后可能兼容以下操作系统：
+目前本程序仍不支持但以后可能支持以下操作系统：
 - Linux（目前可能可以启动程序，但几乎不能正常使用，**未经测试**）
 - MacOS（构建失败，我没有这方面的经验）
 
-本程序永远不可能兼容以下系统：
+本程序永远不可能支持以下系统：
 - Windows 8 **（未经测试）**
 - Windows XP 或更早版本
+
+# 常见问题
+
+### 我应该选择哪个版本？
+
+您应该选择[最新的版本](https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/latest)。如果您想尝试最新的<s>BUG</s>，您可以下载[Preview](https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases)版本或[Action](https://github.com/NewbieXvwu/MinecraftSkinDownloader/actions)版本。
+
+### 为什么发布版里有四个文件？我要选哪个？
+
+这取决于您的操作系统版本和架构。
+
+如果您的操作系统版本是Windows 8.1或更新版本，您应该选择无"Windows7"后缀的版本。
+
+如果您的操作系统是Windows 7或Windows Vista，您应该选择带"Windows7"后缀的版本。
+
+如果您的操作系统是64位架构的（较普遍），请最好选择带"x64"后缀的版本，但是选择带"x86"后缀的也可以正常运行。可能会有一些性能损耗。
+
+如果您的操作系统是32位架构的（较稀有，可能是十年前生产的老电脑，可以通过[搜索](https://www.baidu.com/s?ie=UTF-8&wd=%E6%9F%A5%E7%9C%8B%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BD%8D%E6%95%B0)来确定版本），您应该选择带"x86"后缀的版本。
+
+### 我的操作系统是XXX，可以使用本程序吗？
+
+请参阅[操作系统支持](https://github.com/NewbieXvwu/MinecraftSkinDownloader#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%94%AF%E6%8C%81)。
+
+### tnnd，为什么不兼容！！（划掉）
+
+这位<s>双料高级特工（雾）</s>，本程序使用Python编写，而部分操作系统要么是我不熟悉，要么是Python不兼容，我也很无奈啊……
+
+### 我发现了一个问题……
+
+正常，飞个[Issue](https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new/choose)过来。
+
+### 作者是何方神圣？代码写得像屎山……
+
+请看我的[个人介绍](https://github.com/NewbieXvwu/NewbieXvwu/blob/main/README.md)。
+
+### 考虑重构吗？
+
+或许以后会重构，但是不是现在。你可以来[帮个忙](https://github.com/NewbieXvwu/MinecraftSkinDownloader/pulls)。
 
 # 构建
 
