@@ -23,6 +23,7 @@
 使用的第三方库：
 - 
 - ttkthemes
+- ttkbootstrap
 - requests
 
 # 下载
@@ -60,7 +61,7 @@
 
 您应该选择[最新的版本](https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/latest)。如果您想尝试最新的<s>BUG</s>，您可以下载[Preview](https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases)版本或[Action](https://github.com/NewbieXvwu/MinecraftSkinDownloader/actions)版本。
 
-### 为什么发布版里有四个文件？我要选哪个？
+### 为什么发布版里有八个文件？我要选哪个？
 
 这取决于您的操作系统版本和架构。
 
@@ -71,6 +72,8 @@
 如果您的操作系统是64位架构的（较普遍），请最好选择带"x64"后缀的版本，但是选择带"x86"后缀的也可以正常运行。可能会有一些性能损耗。
 
 如果您的操作系统是32位架构的（较稀有，可能是十年前生产的老电脑，可以通过[搜索](https://www.baidu.com/s?ie=UTF-8&wd=%E6%9F%A5%E7%9C%8B%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BD%8D%E6%95%B0)来确定版本），您应该选择带"x86"后缀的版本。
+
+后缀带有"ttkbootstrap"的采用了ttkbootstrap这个ttk增强库，后缀带有“ttkthemes”的使用了ttkthemes这个ttk增强库。两个版本的GUI略有差距，但核心功能无差别。
 
 ### 我的操作系统是XXX，可以使用本程序吗？
 
