@@ -5,14 +5,14 @@ Gitee仓库地址:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
 关于本程序：这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
 作者：NewbieXvwu
 '''
-version_int=2.5#程序主版本号
+version_int=2.6#程序主版本号
 ispreview=False#程序是否是预览版
 previewversion="0"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
     version="v"+str(version_int)+" Preview "+previewversion
 else:
     version="v"+str(version_int)
-#导入本地库（有些没用到，屎山懒得翻了）
+#导入本地库
 from copyreg import clear_extension_cache
 import ctypes, sys
 import os
@@ -27,7 +27,10 @@ import threading
 import platform
 import ctypes
 import time
-import winreg
+try:
+    import winreg
+except:
+    pass
 global ThreadShouldStop
 ThreadShouldStop=False
 def on_closing():
@@ -234,6 +237,7 @@ def getzbmain():#主函数
     id_=e.get()
     if id_=="":
         tkinter.messagebox.showerror(title='错误', message='请填写内容！') 
+        e.focus_set()
     else:
         zt.set("状态：正在向Mojang请求玩家的UUID……")
         url1="https://api.mojang.com/users/profiles/minecraft/"+id_
@@ -403,6 +407,7 @@ def info():#关于页面
     abouty=(aboutsch-abouth)/2
     about.geometry("%dx%d+%d+%d"%(aboutw,abouth,aboutx,abouty))
     about.iconbitmap('logo.ico')
+    about.resizable(width=False,height=False)
     lb4=Label(about,text="关于本程序",font=("宋体",15))
     lb4.place(x=100,y=30)
     lb5=Label(about,text=" 这是一个可以简单地下载任何\n\n Minecraft正版玩家皮肤的软件。",font=("宋体",14))
@@ -413,6 +418,7 @@ def info():#关于页面
     btn4.place(x=102.5,y=155)
     btn5=Button(about,text="Bilibili",command=openbilibili)
     btn5.place(x=5,y=155)
+    about.lift()
 '''def TryUpdate(update_url):#更新模块，已禁用
     update=requests.get(update_url)
     update=update.text
@@ -452,6 +458,7 @@ sc.title("Minecraft正版皮肤下载器"+version+" By 萌新欻無")
 sc.geometry("%dx%d+%d+%d"%(w,h,x,y))
 sc.maxsize(w,h)
 sc.minsize(w,h)
+sc.resizable(width=False,height=False)
 try:#从双源尝试下载Logo
     sc.iconbitmap('logo.ico')
 except:
@@ -473,23 +480,26 @@ lb1.place(x=110,y=50)
 e=Entry(sc,width=20)
 e.place(x=170,y=120)
 e.bind("<Return>",getzb)
+e.focus_set()
 btn1=Button(sc,text="点击获取",command=getzb)
 btn1.place(x=195,y=190)
 zt=tkinter.StringVar()
 zt.set("状态：待命")
 lb2=Label(sc,textvariable=zt,font=("宋体",15))
 lb2.place(x=10,y=270)
-cmb = Combobox(sc,width=7)
-cmb.place(x=420,y=5)
-ms=("浅色模式","深色模式")
-cmb["value"]=ms
-cmb.current(0)
-def func(event):
-    if cmb.get()==ms[0]:
-        sc.set_theme("arc")
-    elif cmb.get()==ms[1]:
-        sc.set_theme("equilux")
-cmb.bind("<<ComboboxSelected>>",func)
+#cmb = Combobox(sc,width=7,state="readonly")
+cmb = Menubutton(sc,width=7)
+cmb.place(x=410,y=5)
+def light():
+    cmb.config(text="浅色模式")
+    sc.set_theme("arc")
+def dark():
+    cmb.config(text="深色模式")
+    sc.set_theme("equilux")
+filemenu = tkinter.Menu(cmb,tearoff=False)
+filemenu.add_command(label="浅色模式",command=light)
+filemenu.add_command(label="深色模式",command=dark)
+cmb.config(menu=filemenu)
 try:#读取Windows 10深色模式
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize")
     try:
@@ -501,11 +511,9 @@ try:#读取Windows 10深色模式
                 break
             i +=1
         if value==0:
-            sc.set_theme("equilux")
-            cmb.current(1)
+            light()
         else:
-            sc.set_theme("arc")
-            cmb.current(0)
+            dark()
     except WindowsError:
         pass
 except:

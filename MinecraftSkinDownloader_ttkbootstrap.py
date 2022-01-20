@@ -5,17 +5,17 @@ Gitee仓库地址:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
 关于本程序：这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
 作者：NewbieXvwu
 '''
-version_int=2.5#程序主版本号
+version_int=2.6#程序主版本号
 ispreview=False#程序是否是预览版
 previewversion="0"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
     version="v"+str(version_int)+" Preview "+previewversion
 else:
     version="v"+str(version_int)
-#导入本地库（有些没用到，屎山懒得翻了）
+#导入本地库
 from copyreg import clear_extension_cache
-import ctypes, sys
-import imp
+import sys
+#import imp
 import os
 import json
 import base64
@@ -28,7 +28,10 @@ import threading
 import platform
 import ctypes
 import time
-import winreg
+try:
+    import winreg
+except:
+    pass
 global ThreadShouldStop
 ThreadShouldStop=False
 def on_closing():
@@ -230,11 +233,20 @@ else:#安装了requests
         else:#安装ttkbootstrap失败
             if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
             exit()
+def validate_number():
+    while True:
+        if e.get() == "":
+            e.config(bootstyle="warning")
+        else:
+            e.config(bootstyle="primary")
+        time.sleep(0.1)
 #定义函数
 def getzbmain():#主函数
     id_=e.get()
     if id_=="":
         tkinter.messagebox.showerror(title='错误', message='请填写内容！') 
+        e.focus_set()
+        e.config(bootstyle="warning")
     else:
         zt.set("状态：正在向Mojang请求玩家的UUID……")
         url1="https://api.mojang.com/users/profiles/minecraft/"+id_
@@ -404,6 +416,7 @@ def info():#关于页面
     abouty=(aboutsch-abouth)/2
     about.geometry("%dx%d+%d+%d"%(aboutw,abouth,aboutx,abouty))
     about.iconbitmap('logo.ico')
+    about.resizable(width=False,height=False)
     lb4=Label(about,text="关于本程序",font=("宋体",15))
     lb4.place(x=100,y=30)
     lb5=Label(about,text=" 这是一个可以简单地下载任何\n\n Minecraft正版玩家皮肤的软件。",font=("宋体",14))
@@ -414,6 +427,7 @@ def info():#关于页面
     btn4.place(x=122.5,y=155)
     btn5=Button(about,text="Bilibili",command=openbilibili,bootstyle="link")
     btn5.place(x=25,y=155)
+    about.lift()
 '''def TryUpdate(update_url):#更新模块，已禁用
     update=requests.get(update_url)
     update=update.text
@@ -454,6 +468,7 @@ sc.title("Minecraft正版皮肤下载器"+version+" By 萌新欻無")
 sc.geometry("%dx%d+%d+%d"%(w,h,x,y))
 sc.maxsize(w,h)
 sc.minsize(w,h)
+sc.resizable(width=False,height=False)
 try:#从双源尝试下载Logo
     sc.iconbitmap('logo.ico')
 except:
@@ -475,6 +490,9 @@ lb1.place(x=110,y=50)
 e=Entry(sc,width=20)
 e.place(x=170,y=120)
 e.bind("<Return>",getzb)
+e.focus_set()
+run____=threading.Thread(target=validate_number)
+run____.start()
 btn1=Button(sc,text="点击获取",command=getzb,bootstyle=(SUCCESS, OUTLINE))
 btn1.place(x=210,y=190)
 zt=tkinter.StringVar()
@@ -485,17 +503,20 @@ btn2=Button(sc,text="关于",command=info,bootstyle=(SUCCESS, OUTLINE))
 btn2.place(x=440,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
-cmb = Combobox(sc,width=7)
-cmb.place(x=420,y=5)
-ms=("浅色模式","深色模式")
-cmb["value"]=ms
-cmb.current(0)
-def func(event):
-    if cmb.get()==ms[0]:
-        style = ttk.Style("cosmo")
-    elif cmb.get()==ms[1]:
-        style = ttk.Style("superhero")
-cmb.bind("<<ComboboxSelected>>",func)
+#cmb = Combobox(sc,width=7,state="readonly")
+cmb = Menubutton(sc,width=7,bootstyle="info-outline")
+#cmb.place(x=420,y=5)
+cmb.place(x=390,y=5)
+def light():
+    cmb.config(text="浅色模式")
+    style = ttk.Style("cosmo")
+def dark():
+    cmb.config(text="深色模式")
+    style = ttk.Style("superhero")
+filemenu = tkinter.Menu(cmb,tearoff=False)
+filemenu.add_command(label="浅色模式",command=light)
+filemenu.add_command(label="深色模式",command=dark)
+cmb.config(menu=filemenu)
 try:#读取Windows 10深色模式
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize")
     try:
@@ -507,11 +528,9 @@ try:#读取Windows 10深色模式
                 break
             i +=1
         if value==0:
-            style = ttk.Style("superhero")
-            cmb.current(1)
+            light()
         else:
-            style = ttk.Style("cosmo")
-            cmb.current(0)
+            dark()
     except WindowsError:
         pass
 except:
