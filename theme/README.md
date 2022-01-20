@@ -1,0 +1,2 @@
+这是[rdbende](https://github.com/rdbende)制作的[SunValley ttk theme](https://github.com/rdbende/Sun-Valley-ttk-theme)主题包的文件。它在[这里](https://github.com/NewbieXvwu/MinecraftSkinDownloader/blob/main/MinecraftSkinDownloader_SunValley.py)被使用。
+[此部分内容的授权许可（MIT LICENSE）](https://github.com/NewbieXvwu/MinecraftSkinDownloader/blob/main/theme/LICENSE)

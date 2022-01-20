@@ -26,6 +26,8 @@
 - ttkbootstrap
 - requests
 
+感谢[rdbende](https://github.com/rdbende)提供的[SunValley ttk theme](https://github.com/rdbende/Sun-Valley-ttk-theme)主题包。
+
 # 下载
 
 你可以在[Release](https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/latest)下载稳定版。
