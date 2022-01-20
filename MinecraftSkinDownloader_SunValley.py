@@ -129,107 +129,6 @@ except:#没有安装requests
     else:#安装requests失败
         if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
         exit()
-    try:
-        import ttkbootstrap as ttk
-    except:#没有安装ttkbootstrap
-        result=os.popen("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkbootstrap").read()
-        if "Successfully installed" in result:#安装ttkbootstrap成功
-            import ttkbootstrap as ttk
-            ThreadShouldStop=True
-        else:#安装ttkbootstrap失败
-            if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
-            exit()
-else:#安装了requests
-    try:
-        import ttkbootstrap as ttk
-    except:#没有安装ttkbootstrap
-        from tkinter import *
-        import tkinter
-        from tkinter.ttk import *
-        def sc_main_():
-            sc_=Tk()
-            #窗口居中
-            scw=sc_.winfo_screenwidth()
-            sch=sc_.winfo_screenheight()
-            w=300
-            h=200
-            x=(scw-w)/2
-            y=(sch-h)/2
-            sc_.title("正在安装运行库")
-            sc_.geometry("%dx%d+%d+%d"%(w,h,x,y))
-            sc_.maxsize(w,h)
-            sc_.minsize(w,h)
-            try:#从双源尝试下载Logo
-                sc_.iconbitmap('logo.ico')
-            except:
-                try:
-                    urlretrieve("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
-                    sc_.iconbitmap('logo.ico')
-                except:
-                    urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
-                    sc_.iconbitmap('logo.ico')
-            try:
-                ctypes.windll.shcore.SetProcessDpiAwareness(1)#高DPI适配
-                ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
-                sc_.tk.call('tk', 'scaling', ScaleFactor/75)
-            except:
-                pass
-            def showmain():
-                while True:
-                    for i in range(100):
-                        try:
-                            # 每次更新加1
-                            pb_['value'] = i + 1
-                            # 更新画面
-                            sc_.update()
-                            time.sleep(0.05)
-                        except:
-                            exit()
-                    for i in range(100):
-                        try:
-                            # 每次更新减1
-                            pb_['value'] = 100 - i
-                            # 更新画面
-                            sc_.update()
-                            time.sleep(0.05)
-                        except:
-                            exit()
-            def ThreadStop():
-                while True:
-                    try:
-                        if ThreadShouldStop:
-                            #sc_.destroy()
-                            os.system("taskkill -f -im python.exe")
-                            os.system("taskkill -f -im pythonw.exe")
-                            os.system("taskkill -f -im py.exe")
-                            os.system("taskkill -f -im pyw.exe")
-                    except:
-                        pass
-                    time.sleep(0.1)
-            run___=threading.Thread(target=ThreadStop)
-            run___.start()
-            def show():#多线程运行主函数，防止主线程GUI卡死
-                run__=threading.Thread(target=showmain)
-                run__.start()
-            lb1_=Label(sc_,text="正在安装程序必要的运行库……",font=("宋体",13))
-            lb1_.place(x=30,y=30)
-            lb2_=Label(sc_,text="  正在安装：ttkbootstrap\n\n安装完毕后请手动重启程序",font=("宋体",10))
-            lb2_.place(x=150,y=90,anchor="center")
-            pb_=Progressbar(sc_,length=240,mode='indeterminate',orient=tkinter.HORIZONTAL)
-            pb_.place(x=30,y=130)
-            show()
-            sc_.protocol('WM_DELETE_WINDOW', on_closing)
-            sc_.mainloop()
-        run___=threading.Thread(target=sc_main_)
-        run___.daemon=True
-        run___.start()
-        result=os.popen("pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ttkbootstrap").read()
-        if "Successfully installed" in result:#安装ttkbootstrap成功
-            from ttkbootstrap import Style
-            ThreadShouldStop=True
-        else:#安装ttkbootstrap失败
-            if tkinter.messagebox.askyesno("错误","运行库安装失败，程序无法继续运行！\n请把以下内容提交给开发者：\n"+result+"\n是否要提交错误？"):os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/issues/new?assignees=&labels=bug&template=bug_report.yml&title=%5B%E6%BC%8F%E6%B4%9E%5D+%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%BA%93")
-            exit()
 #定义函数
 def getzbmain():#主函数
     id_=e.get()
@@ -408,11 +307,11 @@ def info():#关于页面
     lb4.place(x=100,y=30)
     lb5=Label(about,text=" 这是一个可以简单地下载任何\n\n Minecraft正版玩家皮肤的软件。",font=("宋体",14))
     lb5.place(x=150,y=100,anchor=CENTER)
-    btn3=Button(about,text="Github",command=opengithub,bootstyle="link")
+    btn3=Button(about,text="Github",command=opengithub)
     btn3.place(x=220,y=155)
-    btn4=Button(about,text="Gitee",command=opengitee,bootstyle="link")
+    btn4=Button(about,text="Gitee",command=opengitee)
     btn4.place(x=122.5,y=155)
-    btn5=Button(about,text="Bilibili",command=openbilibili,bootstyle="link")
+    btn5=Button(about,text="Bilibili",command=openbilibili)
     btn5.place(x=25,y=155)
 '''def TryUpdate(update_url):#更新模块，已禁用
     update=requests.get(update_url)
@@ -438,11 +337,13 @@ def info():#关于页面
             run_1.start()
     del update'''
 from tkinter import *
-import ttkbootstrap as ttk
-from ttkbootstrap.constants import *
+#import ttkbootstrap as ttk
+#from ttkbootstrap.constants import *
 from tkinter.ttk import *
 #sc=ThemedTk(theme="equilux", toplevel=True, themebg=True)
 sc=Tk()
+sc.tk.call("source", "sun-valley.tcl")
+sc.tk.call("set_theme", "light")
 #窗口居中
 scw=sc.winfo_screenwidth()
 sch=sc.winfo_screenheight()
@@ -475,26 +376,26 @@ lb1.place(x=110,y=50)
 e=Entry(sc,width=20)
 e.place(x=170,y=120)
 e.bind("<Return>",getzb)
-btn1=Button(sc,text="点击获取",command=getzb,bootstyle=(SUCCESS, OUTLINE))
+btn1=Button(sc,text="点击获取",command=getzb)
 btn1.place(x=210,y=190)
 zt=tkinter.StringVar()
 zt.set("状态：待命")
 lb2=Label(sc,textvariable=zt,font=("宋体",15))
 lb2.place(x=10,y=270)
-btn2=Button(sc,text="关于",command=info,bootstyle=(SUCCESS, OUTLINE))
+btn2=Button(sc,text="关于",command=info)
 btn2.place(x=440,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
 cmb = Combobox(sc,width=7)
-cmb.place(x=420,y=5)
+cmb.place(x=410,y=5)
 ms=("浅色模式","深色模式")
 cmb["value"]=ms
 cmb.current(0)
 def func(event):
     if cmb.get()==ms[0]:
-        style = ttk.Style("cosmo")
+        sc.tk.call("set_theme", "light")
     elif cmb.get()==ms[1]:
-        style = ttk.Style("superhero")
+        sc.tk.call("set_theme", "dark")
 cmb.bind("<<ComboboxSelected>>",func)
 try:#读取Windows 10深色模式
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize")
@@ -507,10 +408,10 @@ try:#读取Windows 10深色模式
                 break
             i +=1
         if value==0:
-            style = ttk.Style("superhero")
+            sc.tk.call("set_theme", "dark")
             cmb.current(1)
         else:
-            style = ttk.Style("cosmo")
+            sc.tk.call("set_theme", "light")
             cmb.current(0)
     except WindowsError:
         pass

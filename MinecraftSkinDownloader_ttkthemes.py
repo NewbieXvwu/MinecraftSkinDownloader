@@ -5,7 +5,7 @@ Gitee仓库地址:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
 关于本程序：这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
 作者：NewbieXvwu
 '''
-version_int=2.4#程序主版本号
+version_int=2.5#程序主版本号
 ispreview=False#程序是否是预览版
 previewversion="0"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
@@ -96,6 +96,10 @@ except:#没有安装requests
                         os.system("taskkill -f -im pythonw.exe")
                         os.system("taskkill -f -im py.exe")
                         os.system("taskkill -f -im pyw.exe")
+                        os.system("taskkill -f -im python3.exe")
+                        os.system("taskkill -f -im pythonw3.exe")
+                        os.system("taskkill -f -im py3.exe")
+                        os.system("taskkill -f -im pyw3.exe")
                 except:
                     pass
                 time.sleep(0.1)
@@ -401,7 +405,7 @@ def info():#关于页面
     about.iconbitmap('logo.ico')
     lb4=Label(about,text="关于本程序",font=("宋体",15))
     lb4.place(x=100,y=30)
-    lb5=Label(about,text="一个简单的Minecraft\n\n  正版皮肤下载器。",font=("宋体",15))
+    lb5=Label(about,text=" 这是一个可以简单地下载任何\n\n Minecraft正版玩家皮肤的软件。",font=("宋体",14))
     lb5.place(x=150,y=100,anchor=CENTER)
     btn3=Button(about,text="Github",command=opengithub)
     btn3.place(x=200,y=155)
@@ -409,7 +413,7 @@ def info():#关于页面
     btn4.place(x=102.5,y=155)
     btn5=Button(about,text="Bilibili",command=openbilibili)
     btn5.place(x=5,y=155)
-def TryUpdate(update_url):#尝试更新
+'''def TryUpdate(update_url):#更新模块，已禁用
     update=requests.get(update_url)
     update=update.text
     update=json.loads(update)
@@ -431,7 +435,7 @@ def TryUpdate(update_url):#尝试更新
                 exit()
             run_1=threading.Thread(target=autoupdate)
             run_1.start()
-    del update
+    del update'''
 from tkinter import *
 from ttkthemes import *
 from tkinter.ttk import *
@@ -511,18 +515,18 @@ btn2.place(x=400,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
 if float(str(platform.version().split(".")[0])+"."+str(platform.version().split(".")[1]))>6.3 and int(platform.python_version().split(".")[1])<=8:
-    if tkinter.messagebox.askyesno(title="您正在使用过旧的Python", message="您的操作系统为Windows "+str(platform.version().split(".")[0])+"，\n但本程序正运行在版本为"+platform.python_version()+"的Python上。\n这可能是因为您下载了本程序的Windows 7兼容版。\n使用兼容版将会导致程序的稳定性无法得到保证，因为本程序的开发使用了更新的Python版本。\n您是否要下载一个稳定性更好的版本？"):
+    if tkinter.messagebox.askyesno(title="您正在使用过旧的Python", message="您的操作系统为Windows "+str(platform.version().split(".")[0])+"，\n但本程序正运行在版本为"+platform.python_version()+"的Python上。\n这可能是因为您下载了本程序的Windows 7特别版。\n使用特别版将会导致程序的稳定性无法得到保证，因为本程序的开发使用了更新的Python版本。\n您是否要下载一个稳定性更好的版本？"):
         os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
         exit()
 if ispreview:#预览版警告
     if not tkinter.messagebox.askyesno(title="您正在使用预览版", message="您正在使用的版本为"+version+"，这是一个预览版。\n使用预览版可能会带来一些不可预知的问题！\n您是否要继续？"):
         os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
         exit()
-try:
+'''try:
     TryUpdate("https://gitee.com/api/v5/repos/NewbieXvwu/MinecraftSkinDownloader/releases/latest")
 except:
     try:
         TryUpdate("https://api.github.com/repos/NewbieXvwu/MinecraftSkinDownloader/releases/lates")
     except:
-        pass
+        pass'''
 sc.mainloop()
