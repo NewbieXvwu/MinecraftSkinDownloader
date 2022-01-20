@@ -1,13 +1,40 @@
 @echo off
-echo æ­£åœ¨æ„å»ºç¨‹åºï¼Œè¯·ç¨å€™â€¦â€¦
-pyinstaller -F -w -i logo.ico MinecraftSkinDownloader.py
-echo æ„å»ºå®Œæ¯•ï¼Œæ­£åœ¨æ¸…ç†æ–‡ä»¶â€¦â€¦
+Title MinecraftSkinDownloader¹¹½¨¸¨Öú³ÌĞò
+echo ÄúÏë¹¹½¨ÄÄ¸ö³ÌĞò£¿
+echo 1 MinecraftSkinDownloader_SunValley.py
+echo 2 MinecraftSkinDownloader_ttkbootstrap.py
+echo 3 MinecraftSkinDownloader_ttkthemes.py
+set/p a=ÇëÑ¡Ôñ:
+if "%a%"=="1" goto :SunValley
+if "%a%"=="2" goto :ttkbootstrap
+if "%a%"=="3" goto :ttkthemes
+exit
+:SunValley
+echo Ä¿Ç°ÓÉÓÚÒÀÀµÎÊÌâ£¬ÎŞ·¨¹¹½¨£¬ÇëµÈ´ı¸üĞÂ¡­¡­
+pause
+:ttkbootstrap
+echo ÕıÔÚ¹¹½¨³ÌĞò£¬ÇëÉÔºò¡­¡­
+pyinstaller -F -w -i logo.ico MinecraftSkinDownloader_ttkbootstrap.py
+echo ¹¹½¨Íê±Ï£¬ÕıÔÚÇåÀíÎÄ¼ş¡­¡­
 del /F /S /Q __pycache__
 del /F /S /Q build
-del /F /S MinecraftSkinDownloader.spec
+del /F /S MinecraftSkinDownloader_ttkbootstrap.spec
 rd __pycache__
-rd build\MinecraftSkinDownloader
+rd build\MinecraftSkinDownloader_ttkbootstrap
 rd build
-move /Y dist\MinecraftSkinDownloader.exe .\MinecraftSkinDownloader.exe
+move /Y dist\MinecraftSkinDownloader_ttkbootstrap.exe .\MinecraftSkinDownloader_ttkbootstrap.exe
+rd dist
+pause
+:ttkthemes
+echo ÕıÔÚ¹¹½¨³ÌĞò£¬ÇëÉÔºò¡­¡­
+pyinstaller -F -w -i logo.ico MinecraftSkinDownloader_ttkthemes.py
+echo ¹¹½¨Íê±Ï£¬ÕıÔÚÇåÀíÎÄ¼ş¡­¡­
+del /F /S /Q __pycache__
+del /F /S /Q build
+del /F /S MinecraftSkinDownloader_ttkthemes.spec
+rd __pycache__
+rd build\MinecraftSkinDownloader_ttkthemes
+rd build
+move /Y dist\MinecraftSkinDownloader_ttkthemes.exe .\MinecraftSkinDownloader_ttkthemes.exe
 rd dist
 pause
