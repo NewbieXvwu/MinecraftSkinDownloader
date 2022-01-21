@@ -228,3 +228,4 @@ jobs:
           dst_token: ${{ secrets.GITEE_TOKEN }}
           force_update: true
           timeout: 5m
+          static_list: "MinecraftSkinDownloader"
