@@ -8,5 +8,6 @@
 - 在Windows Server 2022 x86上编译本程序的Windows 7兼容版本
 - 将Github仓库镜像到Gitee
 - 在发布正式版程序时自动编译并上传到Release
+- 关闭长期无人关心的Issue
 
 如果你clone了本仓库，你可以删除本文件夹。

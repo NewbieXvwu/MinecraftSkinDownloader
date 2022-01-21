@@ -1,0 +1,24 @@
+name: "Close stale issues"
+on:
+  schedule:
+  - cron: "0 0 * * *"
+
+jobs:
+  stale:
+    name: Close stale issues
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/stale@v3
+      with:
+        repo-token: ${{ secrets.RELEASE_TOKEN }}
+        stale-issue-message: '此问题已过时，因为它已被打开60天，没有任何活动。请删除系统自动添加的“过时”的标签或评论，否则将在7天内关闭。'
+        stale-pr-message: '此拉取请求已过时，因为它已被打开60天，没有任何活动。请删除系统自动添加的“过时”的标签或评论，否则将在7天内关闭。'
+        stale-issue-label: 过时
+        stale-pr-label: 过时
+        close-issue-message： '此问题已被关闭，因为它已被打开67天，没有任何活动。'
+        close-pr-message:  '此拉取请求已被关闭，因为它已被打开67天，没有任何活动。'
+        remove-issue-stale-when-updated: true
+        remove-pr-stale-when-updated: true
+        exempt-assignees: NewbieXvwu
+        days-before-stale: 60
+        days-before-close: 7
