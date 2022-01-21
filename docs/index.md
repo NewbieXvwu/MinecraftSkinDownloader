@@ -1,4 +1,4 @@
-<img width="192" height="192" align="left" style="float: left; margin: 0 10px 0 0;" src="logo.png" alt="logo.png"/><br />
+<img width="192" height="192" align="left" style="float: left; margin: 0 10px 0 0;" src="logo.png" alt="Logo"/><br />
 # MinecraftSkinDownloader 
 这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
 
