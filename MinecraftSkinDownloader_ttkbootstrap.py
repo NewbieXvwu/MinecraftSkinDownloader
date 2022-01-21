@@ -216,7 +216,7 @@ else:#安装了requests
                 run__.start()
             lb1_=Label(sc_,text="正在安装程序必要的运行库……",font=("宋体",13))
             lb1_.place(x=30,y=30)
-            lb2_=Label(sc_,text="  正在安装：ttkbootstrap\n\n安装完毕后请手动重启程序",font=("宋体",10))
+            lb2_=Label(sc_,text=" 正在安装：ttkbootstrap\n\n安装完毕后请手动重启程序",font=("宋体",10))
             lb2_.place(x=150,y=90,anchor="center")
             pb_=Progressbar(sc_,length=240,mode='indeterminate',orient=tkinter.HORIZONTAL)
             pb_.place(x=30,y=130)
