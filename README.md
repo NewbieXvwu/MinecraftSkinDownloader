@@ -28,6 +28,8 @@
 
 感谢[rdbende](https://github.com/rdbende)提供的[SunValley ttk theme](https://github.com/rdbende/Sun-Valley-ttk-theme)主题包。
 
+注意，[SunValley ttk theme](https://github.com/rdbende/Sun-Valley-ttk-theme)主题包使用[MIT License](https://github.com/rdbende/Sun-Valley-ttk-theme/blob/master/LICENSE)授权。
+
 # 下载
 
 你可以在[Release](https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases/latest)下载稳定版。
