@@ -12,6 +12,7 @@ exit
 :SunValley
 echo 目前由于依赖问题，无法构建，请等待更新……
 pause
+exit
 :ttkbootstrap
 echo 正在构建程序，请稍候……
 pyinstaller -F -w -i logo.ico MinecraftSkinDownloader_ttkbootstrap.py
@@ -25,6 +26,7 @@ rd build
 move /Y dist\MinecraftSkinDownloader_ttkbootstrap.exe .\MinecraftSkinDownloader_ttkbootstrap.exe
 rd dist
 pause
+exit
 :ttkthemes
 echo 正在构建程序，请稍候……
 pyinstaller -F -w -i logo.ico MinecraftSkinDownloader_ttkthemes.py
@@ -38,3 +40,4 @@ rd build
 move /Y dist\MinecraftSkinDownloader_ttkthemes.exe .\MinecraftSkinDownloader_ttkthemes.exe
 rd dist
 pause
+exit
