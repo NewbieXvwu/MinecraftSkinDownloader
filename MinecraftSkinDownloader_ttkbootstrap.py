@@ -170,7 +170,10 @@ else:#安装了requests
                     sc_.iconbitmap('logo.ico')
                 except:
                     urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
-                    sc_.iconbitmap('logo.ico')
+                    try:
+                        sc_.iconbitmap('logo.ico')
+                    except:
+                        pass
             try:
                 ctypes.windll.shcore.SetProcessDpiAwareness(1)#高DPI适配
                 ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
@@ -415,7 +418,10 @@ def info():#关于页面
     aboutx=(aboutscw-aboutw)/2
     abouty=(aboutsch-abouth)/2
     about.geometry("%dx%d+%d+%d"%(aboutw,abouth,aboutx,abouty))
-    about.iconbitmap('logo.ico')
+    try:
+        about.iconbitmap('logo.ico')
+    except:
+        pass
     about.resizable(width=False,height=False)
     lb4=Label(about,text="关于本程序",font=("宋体",15))
     lb4.place(x=100,y=30)
@@ -476,8 +482,11 @@ except:
         urlretrieve("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
         sc.iconbitmap('logo.ico')
     except:
-        urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
-        sc.iconbitmap('logo.ico')
+        try:
+            urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
+            sc.iconbitmap('logo.ico')
+        except:
+            pass
 try:
     ctypes.windll.shcore.SetProcessDpiAwareness(1)#高DPI适配
     ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
@@ -519,26 +528,26 @@ filemenu.add_command(label="深色模式",command=dark)
 cmb.config(menu=filemenu)
 try:#读取Windows 10深色模式
     key = winreg.OpenKey(winreg.HKEY_CURRENT_USER,r"Software\Microsoft\Windows\CurrentVersion\Themes\Personalize")
-    try:
-        i = 0
-        while True:
-            #EnumValue方法用来枚举键值，EnumKey用来枚举子键
-            name,value,type=winreg.EnumValue(key,i)
-            if str(name)=="AppsUseLightTheme":
-                break
-            i +=1
-        if value==0:
-            light()
-        else:
-            dark()
-    except WindowsError:
-        pass
+    i = 0
+    while True:
+        #EnumValue方法用来枚举键值，EnumKey用来枚举子键
+        name,value,type=winreg.EnumValue(key,i)
+        if str(name)=="AppsUseLightTheme":
+            break
+        i +=1
+    if value==0:
+        light()
+    else:
+        dark()
 except:
     pass
-if float(str(platform.version().split(".")[0])+"."+str(platform.version().split(".")[1]))>6.3 and int(platform.python_version().split(".")[1])<=8:
-    if tkinter.messagebox.askyesno(title="您正在使用过旧的Python", message="您的操作系统为Windows "+str(platform.version().split(".")[0])+"，\n但本程序正运行在版本为"+platform.python_version()+"的Python上。\n这可能是因为您下载了本程序的Windows 7特别版。\n使用特别版将会导致程序的稳定性无法得到保证，因为本程序的开发使用了更新的Python版本。\n您是否要下载一个稳定性更好的版本？"):
-        os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
-        exit()
+try:
+    if float(str(platform.version().split(".")[0])+"."+str(platform.version().split(".")[1]))>6.3 and int(platform.python_version().split(".")[1])<=8:
+        if tkinter.messagebox.askyesno(title="您正在使用过旧的Python", message="您的操作系统为Windows "+str(platform.version().split(".")[0])+"，\n但本程序正运行在版本为"+platform.python_version()+"的Python上。\n这可能是因为您下载了本程序的Windows 7特别版。\n使用特别版将会导致程序的稳定性无法得到保证，因为本程序的开发使用了更新的Python版本。\n您是否要下载一个稳定性更好的版本？"):
+            os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
+            exit()
+except:
+    pass
 if ispreview:#预览版警告
     if not tkinter.messagebox.askyesno(title="您正在使用预览版", message="您正在使用的版本为"+version+"，这是一个预览版。\n使用预览版可能会带来一些不可预知的问题！\n您是否要继续？"):
         os.startfile("https://github.com/NewbieXvwu/MinecraftSkinDownloader/releases")
