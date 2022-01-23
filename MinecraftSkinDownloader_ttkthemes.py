@@ -14,7 +14,7 @@ else:
     version="v"+str(version_int)
 #导入本地库
 from copyreg import clear_extension_cache
-import ctypes, sys
+import sys
 import os
 import json
 import base64
@@ -98,14 +98,17 @@ except:#没有安装requests
                 try:
                     if ThreadShouldStop:
                         #sc_.destroy()
-                        os.system("taskkill -f -im python.exe")
-                        os.system("taskkill -f -im pythonw.exe")
-                        os.system("taskkill -f -im py.exe")
-                        os.system("taskkill -f -im pyw.exe")
-                        os.system("taskkill -f -im python3.exe")
-                        os.system("taskkill -f -im pythonw3.exe")
-                        os.system("taskkill -f -im py3.exe")
-                        os.system("taskkill -f -im pyw3.exe")
+                        try:
+                            os.system("taskkill -f -im python.exe")
+                            os.system("taskkill -f -im pythonw.exe")
+                            os.system("taskkill -f -im py.exe")
+                            os.system("taskkill -f -im pyw.exe")
+                            os.system("taskkill -f -im python3.exe")
+                            os.system("taskkill -f -im pythonw3.exe")
+                            os.system("taskkill -f -im py3.exe")
+                            os.system("taskkill -f -im pyw3.exe")
+                        except:
+                            exit()
                 except:
                     pass
                 time.sleep(0.1)
@@ -207,10 +210,17 @@ else:#安装了requests
                     try:
                         if ThreadShouldStop:
                             #sc_.destroy()
-                            os.system("taskkill -f -im python.exe")
-                            os.system("taskkill -f -im pythonw.exe")
-                            os.system("taskkill -f -im py.exe")
-                            os.system("taskkill -f -im pyw.exe")
+                            try:
+                                os.system("taskkill -f -im python.exe")
+                                os.system("taskkill -f -im pythonw.exe")
+                                os.system("taskkill -f -im py.exe")
+                                os.system("taskkill -f -im pyw.exe")
+                                os.system("taskkill -f -im python3.exe")
+                                os.system("taskkill -f -im pythonw3.exe")
+                                os.system("taskkill -f -im py3.exe")
+                                os.system("taskkill -f -im pyw3.exe")
+                            except:
+                                exit()
                     except:
                         pass
                     time.sleep(0.1)

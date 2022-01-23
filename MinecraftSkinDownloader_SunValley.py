@@ -102,14 +102,17 @@ except:#没有安装requests
                 try:
                     if ThreadShouldStop:
                         #sc_.destroy()
-                        os.system("taskkill -f -im python.exe")
-                        os.system("taskkill -f -im pythonw.exe")
-                        os.system("taskkill -f -im py.exe")
-                        os.system("taskkill -f -im pyw.exe")
-                        os.system("taskkill -f -im python3.exe")
-                        os.system("taskkill -f -im pythonw3.exe")
-                        os.system("taskkill -f -im py3.exe")
-                        os.system("taskkill -f -im pyw3.exe")
+                        try:
+                            os.system("taskkill -f -im python.exe")
+                            os.system("taskkill -f -im pythonw.exe")
+                            os.system("taskkill -f -im py.exe")
+                            os.system("taskkill -f -im pyw.exe")
+                            os.system("taskkill -f -im python3.exe")
+                            os.system("taskkill -f -im pythonw3.exe")
+                            os.system("taskkill -f -im py3.exe")
+                            os.system("taskkill -f -im pyw3.exe")
+                        except:
+                            exit()
                 except:
                     pass
                 time.sleep(0.1)
@@ -217,92 +220,93 @@ def getzbmain():#主函数
             exit_=str(tkinter.messagebox.showwarning(title="下载完毕", message="下载完毕！"))
         zt.set("状态：待命")
         lb2.config(textvariable=zt)
-        exit_=tkinter.messagebox.askyesno(title="下载完毕", message="下载完毕！按“确认”打包皮肤成材质包，或者按“取消”打开文件！")
-        if exit_==True:
-            try:
+        if not isLinux:
+            exit_=tkinter.messagebox.askyesno(title="下载完毕", message="下载完毕！按“确认”打包皮肤成材质包，或者按“取消”打开文件！")
+            if exit_==True:
+                try:
+                    file=".\\"+id_
+                    shutil.rmtree(file)
+                    del file
+                except:
+                    zt.set("状态：正在删除旧的临时目录……")
+                zt.set("状态：正在创建新的临时目录……")
+                lb2.config(textvariable=zt)
+                file="./"+id_
+                os.mkdir(file)
+                del file
+                zt.set("状态：正在创建材质包说明文件……")
+                lb2.config(textvariable=zt)
+                filename = './'+id_+"/pack.mcmeta"
+                mcmeta="{\"pack\":{\"pack_format\":7,\"description\":\"§c",id_,"\'s Skin Resourcepack\"}}"
+                with open(filename, 'w') as file_object:
+                    file_object.write("{\"pack\":{\"pack_format\":4,\"description\":\"§cSkin Resourcepack\"}}")
+                del filename
+                del mcmeta
+                zt.set("状态：正在下载材质包Logo……")
+                lb2.config(textvariable=zt)
+                url3="https://pic.downk.cc/item/5ff174673ffa7d37b35bb165.png"
+                filename="./"+id_+"/pack.png"
+                urlretrieve(url3,filename)
+                del url3
+                del filename
+                zt.set("状态：正在创建皮肤目录……")
+                lb2.config(textvariable=zt)
+                file="./"+id_+"/assets"
+                os.mkdir(file)
+                del file
+                file="./"+id_+"/assets/minecraft"
+                os.mkdir(file)
+                del file
+                file="./"+id_+"/assets/minecraft/textures"
+                os.mkdir(file)
+                del file
+                file="./"+id_+"/assets/minecraft/textures/entity"
+                os.mkdir(file)
+                del file
+                zt.set("状态：正在复制皮肤文件……")
+                lb2.config(textvariable=zt)
+                if isalex=="slim":
+                    cmd="copy "+id_+".png .\\"+id_+"\\assets\\minecraft\\textures\\entity\\alex.png"
+                    os.system(cmd)
+                else:
+                    cmd="copy "+id_+".png .\\"+id_+"\\assets\\minecraft\\textures\\entity\\steve.png"
+                    os.system(cmd)
+                del cmd
+                zt.set("状态：正在压缩材质包……")
+                lb2.config(textvariable=zt)
+                shutil.make_archive("Skin_"+id_,'zip',id_)
+                zt.set("状态：正在删除临时目录……")
+                lb2.config(textvariable=zt)
                 file=".\\"+id_
                 shutil.rmtree(file)
                 del file
-            except:
-                zt.set("状态：正在删除旧的临时目录……")
-            zt.set("状态：正在创建新的临时目录……")
-            lb2.config(textvariable=zt)
-            file="./"+id_
-            os.mkdir(file)
-            del file
-            zt.set("状态：正在创建材质包说明文件……")
-            lb2.config(textvariable=zt)
-            filename = './'+id_+"/pack.mcmeta"
-            mcmeta="{\"pack\":{\"pack_format\":7,\"description\":\"§c",id_,"\'s Skin Resourcepack\"}}"
-            with open(filename, 'w') as file_object:
-                file_object.write("{\"pack\":{\"pack_format\":4,\"description\":\"§cSkin Resourcepack\"}}")
-            del filename
-            del mcmeta
-            zt.set("状态：正在下载材质包Logo……")
-            lb2.config(textvariable=zt)
-            url3="https://pic.downk.cc/item/5ff174673ffa7d37b35bb165.png"
-            filename="./"+id_+"/pack.png"
-            urlretrieve(url3,filename)
-            del url3
-            del filename
-            zt.set("状态：正在创建皮肤目录……")
-            lb2.config(textvariable=zt)
-            file="./"+id_+"/assets"
-            os.mkdir(file)
-            del file
-            file="./"+id_+"/assets/minecraft"
-            os.mkdir(file)
-            del file
-            file="./"+id_+"/assets/minecraft/textures"
-            os.mkdir(file)
-            del file
-            file="./"+id_+"/assets/minecraft/textures/entity"
-            os.mkdir(file)
-            del file
-            zt.set("状态：正在复制皮肤文件……")
-            lb2.config(textvariable=zt)
-            if isalex=="slim":
-                cmd="copy "+id_+".png .\\"+id_+"\\assets\\minecraft\\textures\\entity\\alex.png"
-                os.system(cmd)
-            else:
-                cmd="copy "+id_+".png .\\"+id_+"\\assets\\minecraft\\textures\\entity\\steve.png"
-                os.system(cmd)
-            del cmd
-            zt.set("状态：正在压缩材质包……")
-            lb2.config(textvariable=zt)
-            shutil.make_archive("Skin_"+id_,'zip',id_)
-            zt.set("状态：正在删除临时目录……")
-            lb2.config(textvariable=zt)
-            file=".\\"+id_
-            shutil.rmtree(file)
-            del file
-            zt.set("状态：待命")
-            if os.path.exists(".\\.minecraft\\resourcepacks"):
-                exit_=tkinter.messagebox.askyesno(title="创建材质包成功", message="成功创建材质包！\n注意：材质包会将游戏内的所有玩家的皮肤都替换成你想要的皮肤，可能会导致一些小问题！\n检测到程序目录下有Minecraft安装，如果要直接导入Minecraft，请按下“确认”，否则请按下“取消”打开材质包。")
-                if exit_==True:
-                    cmd="copy Skin_"+id_+".zip .\\.minecraft\\resourcepacks\\"+id_+".zip"
-                    os.system(cmd)
-                    del cmd
-                    exit_=tkinter.messagebox.askyesno(title="导入成功", message="导入成功！\n是否要打开材质包文件夹？")
+                zt.set("状态：待命")
+                if os.path.exists(".\\.minecraft\\resourcepacks"):
+                    exit_=tkinter.messagebox.askyesno(title="创建材质包成功", message="成功创建材质包！\n注意：材质包会将游戏内的所有玩家的皮肤都替换成你想要的皮肤，可能会导致一些小问题！\n检测到程序目录下有Minecraft安装，如果要直接导入Minecraft，请按下“确认”，否则请按下“取消”打开材质包。")
                     if exit_==True:
-                        start="start \"\" .\\.minecraft\\resourcepacks\\"
+                        cmd="copy Skin_"+id_+".zip .\\.minecraft\\resourcepacks\\"+id_+".zip"
+                        os.system(cmd)
+                        del cmd
+                        exit_=tkinter.messagebox.askyesno(title="导入成功", message="导入成功！\n是否要打开材质包文件夹？")
+                        if exit_==True:
+                            start="start \"\" .\\.minecraft\\resourcepacks\\"
+                            os.system(start)
+                        del exit_
+                    else:
+                        start="start \"\" "+"\""+id_+'.zip'+"\""
+                        os.system(start)
+                else:
+                    exit_=tkinter.messagebox.askyesno(title="创建材质包成功", message="创建材质包成功！注意：材质包会将游戏内的所有玩家的皮肤都替换成你想要的皮肤，可能会导致一些小问题！\n是否要打开材质包？")
+                    if exit_==True:
+                        start="start \"\" "+"\"Skin_"+id_+'.zip'+"\""
                         os.system(start)
                     del exit_
-                else:
-                    start="start \"\" "+"\""+id_+'.zip'+"\""
-                    os.system(start)
             else:
-                exit_=tkinter.messagebox.askyesno(title="创建材质包成功", message="创建材质包成功！注意：材质包会将游戏内的所有玩家的皮肤都替换成你想要的皮肤，可能会导致一些小问题！\n是否要打开材质包？")
-                if exit_==True:
-                    start="start \"\" "+"\"Skin_"+id_+'.zip'+"\""
-                    os.system(start)
-                del exit_
-        else:
-            try:
-                start=id_+'.png'
-                os.startfile(start)
-            except:
-                pass
+                try:
+                    start=id_+'.png'
+                    os.startfile(start)
+                except:
+                    pass
 def getzb(ev=None):#多线程运行主函数，防止主线程GUI卡死
     run_=threading.Thread(target=getzbmain)
     run_.start()
