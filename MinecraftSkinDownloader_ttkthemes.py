@@ -13,7 +13,6 @@ if ispreview:#生成字符串版的版本号
 else:
     version="v"+str(version_int)
 #导入本地库
-from copyreg import clear_extension_cache
 import sys
 import os
 import json
@@ -32,10 +31,7 @@ try:
 except:
     pass
 def isLinux():
-    if platform.architecture()[1]=="ELF":
-        return True
-    else:
-        return False
+    return platform.architecture()[1]=="ELF"
 global ThreadShouldStop
 ThreadShouldStop=False
 def on_closing():
@@ -438,7 +434,7 @@ def info():#关于页面
     about.resizable(width=False,height=False)
     lb4=Label(about,text="关于本程序",font=("宋体",15))
     lb4.place(x=100,y=30)
-    if isLinux:
+    if isLinux():
         lb5=Label(about,text="   这是一个可以简单地下载任何\n Minecraft正版玩家皮肤的软件。",font=("宋体",14))
     else:
         lb5=Label(about,text=" 这是一个可以简单地下载任何\n\n Minecraft正版玩家皮肤的软件。",font=("宋体",14))
@@ -512,7 +508,7 @@ except:
 lb1=Label(sc,text="请输入Minecraft正版账号名称",font=("宋体",15))
 lb1.place(x=110,y=50)
 e=Entry(sc,width=20)
-if isLinux:
+if isLinux():
     e.place(x=160,y=120)
 else:
     e.place(x=170,y=120)
@@ -523,13 +519,13 @@ btn1.place(x=195,y=190)
 zt=tkinter.StringVar()
 zt.set("状态：待命")
 lb2=Label(sc,textvariable=zt,font=("宋体",15))
-if isLinux:
+if isLinux():
     lb2.place(x=10,y=265)
 else:
     lb2.place(x=10,y=270)
 #cmb = Combobox(sc,width=7,state="readonly")
 cmb = Menubutton(sc,width=7)
-if isLinux:
+if isLinux():
     cmb.place(x=395,y=5)
 else:
     cmb.place(x=400,y=5)
@@ -559,7 +555,7 @@ try:#读取Windows 10深色模式
 except:
     pass
 btn2=Button(sc,text="关于",command=info)
-if isLinux:
+if isLinux():
     btn2.place(x=390,y=255)
 else:
     btn2.place(x=440,y=260)
