@@ -15,6 +15,7 @@ else:
 #导入本地库
 from copyreg import clear_extension_cache
 import ctypes, sys
+import re
 #import imp
 import os
 import json
@@ -32,6 +33,11 @@ try:
     import winreg
 except:
     pass
+def isLinux():
+    if platform.architecture()[1]=="ELF":
+        return True
+    else:
+        return False
 global ThreadShouldStop
 ThreadShouldStop=False
 def on_closing():
@@ -292,8 +298,11 @@ def getzbmain():#主函数
                     os.system(start)
                 del exit_
         else:
-            start=id_+'.png'
-            os.startfile(start)
+            try:
+                start=id_+'.png'
+                os.startfile(start)
+            except:
+                pass
 def getzb(ev=None):#多线程运行主函数，防止主线程GUI卡死
     run_=threading.Thread(target=getzbmain)
     run_.start()
@@ -320,7 +329,10 @@ def info():#关于页面
     about.resizable(width=False,height=False)
     lb4=Label(about,text="关于本程序",font=("宋体",15))
     lb4.place(x=100,y=30)
-    lb5=Label(about,text=" 这是一个可以简单地下载任何\n\n Minecraft正版玩家皮肤的软件。",font=("宋体",14))
+    if isLinux:
+        lb5=Label(about,text="   这是一个可以简单地下载任何\n Minecraft正版玩家皮肤的软件。",font=("宋体",14))
+    else:
+        lb5=Label(about,text=" 这是一个可以简单地下载任何\n\n Minecraft正版玩家皮肤的软件。",font=("宋体",14))
     lb5.place(x=150,y=100,anchor=CENTER)
     btn3=Button(about,text="Github",command=opengithub)
     btn3.place(x=220,y=155)
@@ -394,7 +406,10 @@ except:
 lb1=Label(sc,text="请输入Minecraft正版账号名称",font=("宋体",15))
 lb1.place(x=110,y=50)
 e=Entry(sc,width=20)
-e.place(x=170,y=120)
+if isLinux:
+    e.place(x=160,y=120)
+else:
+    e.place(x=170,y=120)
 e.bind("<Return>",getzb)
 e.focus_set()
 run____=threading.Thread(target=validate_number)
@@ -404,15 +419,24 @@ btn1.place(x=210,y=190)
 zt=tkinter.StringVar()
 zt.set("状态：待命")
 lb2=Label(sc,textvariable=zt,font=("宋体",15))
-lb2.place(x=10,y=270)
+if isLinux:
+    lb2.place(x=10,y=265)
+else:
+    lb2.place(x=10,y=270)
 btn2=Button(sc,text="关于",command=info)
-btn2.place(x=440,y=260)
+if isLinux:
+    btn2.place(x=440,y=255)
+else:
+    btn2.place(x=440,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
 #cmb = Combobox(sc,width=7,state="readonly")
 cmb = Menubutton(sc,width=7)
 #cmb.place(x=420,y=5)
-cmb.place(x=400,y=5)
+if isLinux:
+    cmb.place(x=395,y=5)
+else:
+    cmb.place(x=400,y=5)
 def light():
     cmb.config(text="浅色模式")
     sc.tk.call("set_theme", "light")
