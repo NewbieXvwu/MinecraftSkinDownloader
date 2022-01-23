@@ -558,7 +558,7 @@ btn2=Button(sc,text="关于",command=info)
 if isLinux():
     btn2.place(x=390,y=255)
 else:
-    btn2.place(x=440,y=260)
+    btn2.place(x=395,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
 lb3.place(x=5,y=5)
 try:

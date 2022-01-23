@@ -545,10 +545,7 @@ lb3.place(x=5,y=5)
 #cmb = Combobox(sc,width=7,state="readonly")
 cmb = Menubutton(sc,width=7,bootstyle="info-outline")
 #cmb.place(x=420,y=5)
-if isLinux():
-    cmb.place(x=390,y=5)
-else:
-    cmb.place(x=400,y=5)
+cmb.place(x=390,y=5)
 def light():
     cmb.config(text="浅色模式")
     style = ttk.Style("cosmo")
