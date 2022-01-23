@@ -177,8 +177,8 @@ else:#安装了requests
                     urlretrieve("https://gitee.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
                     sc_.iconbitmap('logo.ico')
                 except:
-                    urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
                     try:
+                        urlretrieve("https://github.com/NewbieXvwu/MinecraftSkinDownloader/raw/main/logo.ico","logo.ico")
                         sc_.iconbitmap('logo.ico')
                     except:
                         pass
@@ -253,11 +253,14 @@ else:#安装了requests
             exit()
 def validate_number():
     while True:
-        if e.get() == "":
-            e.config(bootstyle="warning")
-        else:
-            e.config(bootstyle="primary")
-        time.sleep(0.1)
+        try:
+            if e.get() == "":
+                e.config(bootstyle="warning")
+            else:
+                e.config(bootstyle="primary")
+            time.sleep(0.1)
+        except:
+            exit()
 #定义函数
 def getzbmain():#主函数
     id_=e.get()
@@ -533,7 +536,7 @@ zt=tkinter.StringVar()
 zt.set("状态：待命")
 lb2=Label(sc,textvariable=zt,font=("宋体",15))
 if isLinux:
-    lb2.place(x=10,y=265)
+    lb2.place(x=10,y=260)
 else:
     lb2.place(x=10,y=270)
 btn2=Button(sc,text="关于",command=info,bootstyle=(SUCCESS, OUTLINE))
@@ -547,7 +550,7 @@ lb3.place(x=5,y=5)
 cmb = Menubutton(sc,width=7,bootstyle="info-outline")
 #cmb.place(x=420,y=5)
 if isLinux:
-    cmb.place(x=395,y=5)
+    cmb.place(x=390,y=5)
 else:
     cmb.place(x=400,y=5)
 def light():

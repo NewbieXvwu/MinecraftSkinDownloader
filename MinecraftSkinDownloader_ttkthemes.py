@@ -446,9 +446,9 @@ def info():#关于页面
     btn3=Button(about,text="Github",command=opengithub)
     btn3.place(x=200,y=155)
     btn4=Button(about,text="Gitee",command=opengitee)
-    btn4.place(x=102.5,y=155)
+    btn4.place(x=102,y=155)
     btn5=Button(about,text="Bilibili",command=openbilibili)
-    btn5.place(x=5,y=155)
+    btn5.place(x=0,y=155)
     about.lift()
 '''def TryUpdate(update_url):#更新模块，已禁用
     update=requests.get(update_url)
@@ -560,7 +560,7 @@ except:
     pass
 btn2=Button(sc,text="关于",command=info)
 if isLinux:
-    btn2.place(x=440,y=255)
+    btn2.place(x=390,y=255)
 else:
     btn2.place(x=440,y=260)
 lb3=Label(sc,text=version,font=("宋体",10))
