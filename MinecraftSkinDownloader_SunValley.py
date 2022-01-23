@@ -13,9 +13,7 @@ if ispreview:#生成字符串版的版本号
 else:
     version="v"+str(version_int)
 #导入本地库
-from copyreg import clear_extension_cache
 import ctypes, sys
-import re
 #import imp
 import os
 import json
