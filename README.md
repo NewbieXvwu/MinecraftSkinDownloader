@@ -8,6 +8,14 @@
 
 注：Gitee有1~2分钟的同步延迟
 
+# 许可协议
+
+[ttkbootstrap](https://github.com/NewbieXvwu/MinecraftSkinDownloader/blob/main/MinecraftSkinDownloader_ttkbootstrap.py)版基于[Apache-2.0](https://github.com/NewbieXvwu/MinecraftSkinDownloader/blob/main/LICENSE)协议授权。
+
+[SunValley](https://github.com/rdbende/Sun-Valley-ttk-theme)版基于[MIT License](https://github.com/rdbende/Sun-Valley-ttk-theme/blob/master/LICENSE)协议授权。
+
+[ttkthemes](https://github.com/NewbieXvwu/MinecraftSkinDownloader/blob/main/MinecraftSkinDownloader_ttkthemes.py)版基于[GPLv3](https://github.com/TkinterEP/ttkthemes/blob/master/LICENSE.md)协议授权。
+
 # 程序截图
 <div align=center><img src="https://user-images.githubusercontent.com/87637612/147638300-bc349c33-950e-4caa-b4f0-eef3617861d6.png"/></div>
 <div align=center><img src="https://user-images.githubusercontent.com/87637612/147638325-210b7b9f-c2b9-4675-bcfc-168ce6f14159.png"/></div>
@@ -27,8 +35,6 @@
 - requests
 
 感谢[rdbende](https://github.com/rdbende)提供的[SunValley ttk theme](https://github.com/rdbende/Sun-Valley-ttk-theme)主题包。
-
-注意，[SunValley ttk theme](https://github.com/rdbende/Sun-Valley-ttk-theme)主题包使用[MIT License](https://github.com/rdbende/Sun-Valley-ttk-theme/blob/master/LICENSE)授权。
 
 # 下载
 
@@ -51,8 +57,10 @@
 - Windows 7 **（需要特别兼容版本）**
 - Windows Vista **（需要特别兼容版本）**
 
+目前本程序部分兼容以下操作系统：
+- Linux（目前可能可以启动程序，但打包材质包功能被禁用）
+
 目前本程序仍不支持但以后可能支持以下操作系统：
-- Linux（目前可能可以启动程序，但几乎不能正常使用，**未经测试**）
 - MacOS（构建失败，我没有这方面的经验）
 
 本程序永远不可能支持以下系统：
@@ -61,7 +69,6 @@
 
 # 已知漏洞
 - 在Windows 7上，部分组件存在错位。
-- 在Windows 7上，主题选择框默认不显示任何主题。
 
 # 常见问题
 
@@ -82,6 +89,8 @@
 如果您的操作系统是32位架构的（较稀有，可能是十年前生产的老电脑，可以通过[搜索](https://www.baidu.com/s?ie=UTF-8&wd=%E6%9F%A5%E7%9C%8B%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BD%8D%E6%95%B0)来确定版本），您应该选择带"x86"后缀的版本。
 
 后缀带有"ttkbootstrap"的采用了ttkbootstrap这个ttk增强库，后缀带有“ttkthemes”的使用了ttkthemes这个ttk增强库。两个版本的GUI略有差距，但核心功能无差别。
+
+注：得益于ttkbootstrap的全新样式引擎，它的内存占用率远低于其它两个版本。
 
 ### 我的操作系统是XXX，可以使用本程序吗？
 
