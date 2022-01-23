@@ -6,6 +6,27 @@ on:
        - published
 
 jobs:
+  Build_Linux_ttkthemes:
+    runs-on: ubuntu-latest
+    name: Build on Linux x64 using ttkthemes
+    steps:
+    - name: Check out
+      uses: actions/checkout@v2
+    - name: Build Python Executable File
+      uses: NewbieXvwu/pyinstaller-build@patch-icon-import-Linux
+      with:
+        main: MinecraftSkinDownloader_ttkthemes
+        artifact: MinecraftSkinDownloader_ttkthemes_Linux
+        use-dependencies: false
+        python_version: 3.10.1
+        pyinstaller_version: 4.8
+        no-console: true
+        icon: logo
+      - name: Upload release assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_ttkthemes_x64.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
   Build_Windows_x64_ttkthemes:
     runs-on: windows-2022
     name: Build on Windows x64 using ttkthemes
@@ -89,6 +110,27 @@ jobs:
         uses: AButler/upload-release-assets@v2.0
         with:
           files: 'dist/MinecraftSkinDownloader_ttkthemes_Windows7_x86.exe'
+          repo-token: ${{ secrets.RELEASE_TOKEN }}
+  Build_Linux_ttkbootstrap:
+    runs-on: ubuntu-latest
+    name: Build on Linux x64 using ttkbootstrap
+    steps:
+    - name: Check out
+      uses: actions/checkout@v2
+    - name: Build Python Executable File
+      uses: NewbieXvwu/pyinstaller-build@patch-icon-import-Linux-ttkbootstrap
+      with:
+        main: MinecraftSkinDownloader_ttkbootstrap
+        artifact: MinecraftSkinDownloader_ttkbootstrap_Linux
+        use-dependencies: false
+        python_version: 3.10.1
+        pyinstaller_version: 4.8
+        no-console: true
+        icon: logo
+      - name: Upload release assets to GitHub
+        uses: AButler/upload-release-assets@v2.0
+        with:
+          files: 'dist/MinecraftSkinDownloader_ttkbootstrap_Linux'
           repo-token: ${{ secrets.RELEASE_TOKEN }}
   Build_Windows_x64_ttkbootstrap:
     runs-on: windows-2022

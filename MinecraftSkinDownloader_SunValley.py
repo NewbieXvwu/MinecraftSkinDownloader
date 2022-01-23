@@ -5,7 +5,7 @@ Gitee仓库地址:https://gitee.com/NewbieXvwu/MinecraftSkinDownloader
 关于本程序：这是一个可以简单地下载任何Minecraft正版玩家的皮肤的软件，使用Python编写，由NewbieXvwu维护。
 作者：NewbieXvwu
 '''
-version_int=2.6#程序主版本号
+version_int=2.7#程序主版本号
 ispreview=False#程序是否是预览版
 previewversion="0"#预览版本号（不自动更新）
 if ispreview:#生成字符串版的版本号
