@@ -22,11 +22,11 @@ jobs:
         pyinstaller_version: 4.8
         no-console: true
         icon: logo
-      - name: Upload release assets to GitHub
-        uses: AButler/upload-release-assets@v2.0
-        with:
-          files: 'dist/MinecraftSkinDownloader_ttkthemes_x64.exe'
-          repo-token: ${{ secrets.RELEASE_TOKEN }}
+    - name: Upload release assets to GitHub
+      uses: AButler/upload-release-assets@v2.0
+      with:
+        files: 'dist/MinecraftSkinDownloader_ttkthemes_x64.exe'
+        repo-token: ${{ secrets.RELEASE_TOKEN }}
   Build_Windows_x64_ttkthemes:
     runs-on: windows-2022
     name: Build on Windows x64 using ttkthemes
@@ -127,11 +127,11 @@ jobs:
         pyinstaller_version: 4.8
         no-console: true
         icon: logo
-      - name: Upload release assets to GitHub
-        uses: AButler/upload-release-assets@v2.0
-        with:
-          files: 'dist/MinecraftSkinDownloader_ttkbootstrap_Linux'
-          repo-token: ${{ secrets.RELEASE_TOKEN }}
+    - name: Upload release assets to GitHub
+      uses: AButler/upload-release-assets@v2.0
+      with:
+        files: 'dist/MinecraftSkinDownloader_ttkbootstrap_Linux'
+        repo-token: ${{ secrets.RELEASE_TOKEN }}
   Build_Windows_x64_ttkbootstrap:
     runs-on: windows-2022
     name: Build on Windows x64 using ttkbootstrap
